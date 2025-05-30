@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Quiz</title>
+  <link rel="stylesheet" href="quiz.css">
+</head>
+    <a href="javascript:window.history.back();" class="back-button">Back</a>
+<body>
+  <div class="quiz-container">
+
+    <h1>Quick Quiz</h1>
+
+    <div class="question">
+      <p>1.What is a key advantage of using a database system over a file system?</p>
+      <button onclick="checkAnswer(this, false)">A. Simpler user interface</button>
+      <button onclick="checkAnswer(this, true)">B. Centralized data management and reduced redundancy</button>
+      <button onclick="checkAnswer(this, false)">C. Faster file access speeds</button>
+      <button onclick="checkAnswer(this, false)">D. Less hardware requirement</button>
+    </div>
+
+    <div class="question">
+      <p>2. Which of the following is part of the database system components?</p>
+      <button onclick="checkAnswer(this, false)">A. Source Code</button>
+      <button onclick="checkAnswer(this, false)">B. Spreadsheets</button>
+      <button onclick="checkAnswer(this, true)">C. Peopleware</button>
+      <button onclick="checkAnswer(this, false)">D. Web Server</button>
+    </div>
+
+    <div class="question">
+      <p>3.  In the relational model, data is organized into:</p>
+      <button onclick="checkAnswer(this, false)">A. Trees</button>
+      <button onclick="checkAnswer(this, true)">B. Tables </button>
+      <button onclick="checkAnswer(this, false)">C. Objects</button>
+      <button onclick="checkAnswer(this, false)">D. Files</button>
+    </div>
+    <div class="question">
+      <p>4. What does SQL stand for?</p>
+      <button onclick="checkAnswer(this, false)">A. Simple Query Language</button>
+      <button onclick="checkAnswer(this, true)">B. Structured Query Language</button>
+      <button onclick="checkAnswer(this, false)">C. Sequential Query Language</button>
+      <button onclick="checkAnswer(this, false)">D. Stored Query Logic</button>
+    </div>
+    <div class="question">
+      <p>5. Which SQL command is used to retrieve data from a table?</p>
+      <button onclick="checkAnswer(this, false)">A. SELECT</button>
+      <button onclick="checkAnswer(this, true)">B. INSERT</button>
+      <button onclick="checkAnswer(this, false)">C. UPDATE</button>
+      <button onclick="checkAnswer(this, false)">D. DELETE</button>
+    </div>
+        <div class="question">
+        <p>6. What is the purpose of normalization in a database?</p>
+        <button onclick="checkAnswer(this, false)">A. To increase redundancy</button>
+        <button onclick="checkAnswer(this, true)">B. To eliminate data anomalies and reduce redundancy</button>
+        <button onclick="checkAnswer(this, false)">C. To encrypt all data</button>
+        <button onclick="checkAnswer(this, false)">D. To speed up processing by storing duplicates</button>
+    </div>
+    <div class="question">
+      <p>7. What is .NET MAUI primarily used for?</p>
+      <button onclick="checkAnswer(this, false)">A. Building databases</button>
+      <button onclick="checkAnswer(this, false)">B. Creating web pages only</button>
+      <button onclick="checkAnswer(this, true)">C. Building cross-platform mobile and desktop applications</button>
+      <button onclick="checkAnswer(this, false)">D. Game development with Unity</button>
+    </div>
+    <div class="question">
+      <p>8. Which language is primarily used with .NET MAUI?</p>
+      <button onclick="checkAnswer(this, false)">A. Java</button>
+      <button onclick="checkAnswer(this, false)">B. Python</button>
+      <button onclick="checkAnswer(this, true)">C. C#</button>
+      <button onclick="checkAnswer(this, false)">D. Kotlin</button>
+    </div>
+    <div class="question">
+      <p>9. What file in a .NET MAUI app defines application behavior and resources?</p>
+      <button onclick="checkAnswer(this, false)">A. Main.xaml</button>
+      <button onclick="checkAnswer(this, true)">B. App.xaml</button>
+      <button onclick="checkAnswer(this, false)">C. Layout.cs</button>
+      <button onclick="checkAnswer(this, false)">D. HomePage.xaml</button>
+    </div>
+    <div class="question">
+      <p>10. Which layout stacks UI elements vertically or horizontally?</p>
+      <button onclick="checkAnswer(this, false)">A. StackLayout</button>
+      <button onclick="checkAnswer(this, true)">B. Grid</button>
+      <button onclick="checkAnswer(this, false)">C. AbsoluteLayout</button>
+      <button onclick="checkAnswer(this, false)">D. ShellLayout</button>
+    </div>
+
+    <div class="result">
+      <p id="score">Score: 0</p>
+      <button onclick="resetQuiz()">Retry</button>
+    </div>
+  </div>
+
+  <script>
+    let score = 0;
+    let answered = 0;
+
+    function checkAnswer(button, isCorrect) {
+      if (button.classList.contains("answered")) return; // Prevent double clicking
+      button.classList.add("answered");
+
+      const allButtons = button.parentElement.querySelectorAll("button");
+      allButtons.forEach(btn => btn.disabled = true);
+
+      if (isCorrect) {
+        score++;
+        button.classList.add("correct");
+      } else {
+        button.classList.add("wrong");
+      }
+
+      answered++;
+      document.getElementById("score").textContent = `Score: ${score}`;
+
+      if (answered === 3) {
+        document.querySelector(".result").style.display = "block";
+      }
+    }
+
+    function resetQuiz() {
+    score = 0;
+    answered = 0;
+    document.getElementById("score").textContent = "Score: 0";
+    document.querySelectorAll("button").forEach(btn => {
+        btn.classList.remove("correct", "wrong", "answered");
+        btn.disabled = false;
+    });
+    document.querySelector(".result").style.display = "none";
+
+    // Scroll to top
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth" // optional for smooth scroll
+    });
+    }
+
+  </script>
+</body>
+
+</html>

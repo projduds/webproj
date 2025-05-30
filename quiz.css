@@ -1,0 +1,75 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f4f8;
+  padding: 20px;
+  text-align: center;
+}
+
+.quiz-container {
+  max-width: 600px;
+  margin: auto;
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.question {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.question p {
+  font-weight: bold;
+}
+
+button {
+  display: block;
+  width: 100%;
+  margin: 5px 0;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #e0e0e0;
+  transition: background-color 0.3s;
+}
+
+button:hover:not(:disabled) {
+  background-color: #ccc;
+}
+
+button.correct {
+  background-color: #4CAF50;
+  color: white;
+}
+
+button.wrong {
+  background-color: #F44336;
+  color: white;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+.result {
+  display: none;
+  margin-top: 20px;
+}
+.back-button {
+  display: inline-block;
+  background-color: #547792; /* Green background */
+  color: white;              /* White text */
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;     /* Remove underline */
+  font-size: 16px;
+  margin-bottom: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: #45a049; /* Darker green on hover */
+}

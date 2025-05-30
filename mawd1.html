@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Java Programming Notes</title>
+  <style>
+    header {
+    position: sticky;
+    top: 0;
+    background-color: #eaeaea;
+    padding: 15px 20px;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #ccc;
+    text-align: center;
+    z-index: 1000;
+    }
+
+    header h1 {
+    margin: 10px 0;
+    font-size: 24px;
+    }
+
+    .back-button {
+    display: inline-block;
+    background-color: #3498db;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 10px;
+    }
+
+    .back-button:hover {
+    background-color: #2980b9;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      padding: 20px;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    h1, h2 {
+      color: #2c3e50;
+    }
+
+    code {
+      background-color: #eee;
+      padding: 2px 5px;
+      border-radius: 4px;
+    }
+
+    pre {
+      background: #eee;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+
+    hr {
+      margin: 30px 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="javascript:window.history.back();" class="back-button">Back</a>
+    <h1>Mobile App and Web Development</h1>
+    <p>Explore:</p>
+  </header>
+      <h1>MODULE 1</h1>
+  <h1>Java Programming Notes</h1>
+
+  <h2>Basic Concepts</h2>
+  <p><strong>Introduction to Java:</strong> Java is a platform-independent, portable, robust, and dynamic language used for various applications.</p>
+
+  <h3>Comments in Java</h3>
+  <pre>
+
+  </pre>
+
+  <h3>Variables</h3>
+  <p>Types include: <code>int</code>, <code>double</code>, <code>String</code>, <code>char</code>, <code>boolean</code>.</p>
+
+  <h3>Operators</h3>
+  <p><strong>Arithmetic:</strong> <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code></p>
+  <p><strong>Increment/Decrement:</strong> <code>++</code>, <code>--</code></p>
+  <p><strong>Assignment:</strong> <code>=</code>, <code>+=</code>, <code>-=</code>, etc.</p>
+
+  <h3>Strings</h3>
+  <p>Sequences of characters; concatenated using <code>+</code>.</p>
+
+  <h3>User Input</h3>
+  <p>Use <code>Scanner</code> class:</p>
+  <code>nextInt()</code>, <code>nextLine()</code>, <code>nextDouble()</code>, etc.
+
+  <h3>Conditionals and Loops</h3>
+  <h4>Conditional Statements</h4>
+  <p><code>if</code>, <code>if-else</code>, <code>else if</code>, <code>nested if</code></p>
+  <p>Logical operators: <code>&&</code> (AND), <code>||</code> (OR), <code>!</code> (NOT)</p>
+
+  <h4>Switch Statement</h4>
+  <p>Used to compare a variable against multiple values with <code>case</code>, <code>break</code>, and <code>default</code>.</p>
+
+  <h4>Loops</h4>
+  <ul>
+    <li><strong>while:</strong> Repeats as long as condition is true</li>
+    <li><strong>do-while:</strong> Executes once before checking condition</li>
+    <li><strong>for:</strong> Includes initialization, condition, and update</li>
+    <li><strong>Loop control:</strong> <code>break</code> (exit loop), <code>continue</code> (skip iteration)</li>
+  </ul>
+
+  <h2>Arrays</h2>
+  <h3>One-Dimensional Arrays</h3>
+  <pre>
+int[] arr = new int[5];
+int[] arr = {1, 2, 3};
+System.out.println(arr[0]);
+System.out.println(arr.length);
+  </pre>
+
+  <h3>Enhanced For Loop</h3>
+  <pre>
+for (int x : arr) {
+  System.out.println(x);
+}
+  </pre>
+
+  <h3>Multidimensional Arrays</h3>
+  <pre>
+int[][] matrix = {
+  {1, 2},
+  {3, 4}
+};
+  </pre>
+
+  <h2>Java Strings</h2>
+  <p>Objects that store sequences of characters. Concatenation with <code>+</code>.</p>
+
+  <h3>Special Characters</h3>
+  <p>Escaped with backslash <code>\</code>:</p>
+  <code>\n</code> = newline<br>
+  <code>\t</code> = tab, etc.
+
+  <h3>Printing Output</h3>
+  <p><code>System.out.print()</code> – no newline</p>
+  <p><code>System.out.println()</code> – with newline</p>
+
+  <hr>
+
+  <h2>Classes and Objects – Part 1 & 2</h2>
+
+  <h3>OOP Concepts</h3>
+  <p>Objects = attributes (state) + methods (behavior)</p>
+
+  <h3>Methods</h3>
+  <pre>
+void sayHello() { }
+void greet(String name) { }
+int sum(int a, int b) { return a + b; }
+  </pre>
+
+  <h3>Access Modifiers</h3>
+  <p><code>public</code>, <code>private</code>, <code>protected</code>, (default)</p>
+
+  <h3>Encapsulation (Getters/Setters)</h3>
+  <pre>
+private String color;
+public String getColor() { return color; }
+public void setColor(String c) { color = c; }
+  </pre>
+
+  <h3>Static Members</h3>
+  <pre>
+static int count;
+  </pre>
+
+  <h3>Final Variables</h3>
+  <pre>
+final double PI = 3.14;
+  </pre>
+
+  <h3>Value vs. Reference Types</h3>
+  <p><strong>Value:</strong> Primitive (copied)</p>
+  <p><strong>Reference:</strong> Objects (shared reference)</p>
+
+  <hr>
+
+  <h2>More on Classes</h2>
+
+  <h3>Inheritance</h3>
+  <pre>
+class Dog extends Animal { }
+  </pre>
+
+  <h3>Polymorphism</h3>
+  <p>Methods behave differently depending on object type.</p>
+
+  <h3>Abstract Classes</h3>
+  <pre>
+abstract class Animal {
+  abstract void makeSound();
+}
+  </pre>
+
+  <h3>Interfaces</h3>
+  <pre>
+interface Animal {
+  void eat();
+}
+  </pre>
+
+  <hr>
+
+  <h2>Exceptions, Collections, and Files</h2>
+
+  <h3>Exception Handling</h3>
+  <pre>
+try {
+  // code
+} catch (Exception e) {
+  // handle
+}
+
+throw new ArithmeticException("Message");
+  </pre>
+
+  <h3>Collections</h3>
+  <pre>
+ArrayList<String> list = new ArrayList<>();
+HashMap<String, Integer> map = new HashMap<>();
+HashSet<String> set = new HashSet<>();
+Collections.sort(list);
+  </pre>
+
+  <h3>File Handling</h3>
+  <p>Reading: Use <code>Scanner</code> with <code>File</code></p>
+  <p>Writing: Use <code>Formatter</code> and <code>format()</code></p>
+  <p>Check existence: <code>file.exists()</code></p>
+
+  <hr>
+
+  <h2>Key Takeaways</h2>
+
+  <h3>Core Java</h3>
+  <p>Variables, operators, loops, conditionals, arrays, strings</p>
+
+  <h3>OOP Essentials</h3>
+  <p>Classes, objects, methods, encapsulation, inheritance, polymorphism</p>
+
+  <h3>Advanced Java</h3>
+  <p>Collections (ArrayList, HashMap, etc.), file I/O, exceptions, access modifiers</p>
+
+  <h3>Real-World Use</h3>
+  <p>User input, file operations, data processing, and error handling</p>
+
+
+
+
+  
+    <h1>MODULE 2</h1>
+
+  <h1>HTML & CSS Fundamentals</h1>
+
+  <section>
+    <h2>1. HTML Document Structure</h2>
+    <p><code>&lt;!DOCTYPE html&gt;</code>: Declares the HTML version (HTML5).</p>
+    <p><code>&lt;html&gt;</code>: Root element for an HTML document.</p>
+    <p><code>&lt;head&gt;</code>: Contains metadata like title, character encoding, and linked resources.</p>
+    <p><code>&lt;title&gt;</code>: Sets the title of the webpage (appears on browser tab).</p>
+    <p><code>&lt;meta charset="UTF-8"&gt;</code>: Specifies character encoding (supports special characters).</p>
+    <p><code>&lt;body&gt;</code>: Contains the content that displays in the browser.</p>
+  </section>
+
+  <section>
+    <h2>2. HTML5 Semantic Elements</h2>
+    <p><code>&lt;header&gt;</code>: Introductory content or site branding.</p>
+    <p><code>&lt;nav&gt;</code>: Navigation links.</p>
+    <p><code>&lt;article&gt;</code>: Self-contained content (e.g., blog post).</p>
+    <p><code>&lt;section&gt;</code>: Groups related content.</p>
+    <p><code>&lt;aside&gt;</code>: Sidebar content related to the main content.</p>
+    <p><code>&lt;footer&gt;</code>: Footer information (e.g., contact, copyright).</p>
+  </section>
+
+  <section>
+    <h2>3. Text Formatting and Elements</h2>
+    <p><code>&lt;h1&gt; to &lt;h6&gt;</code>: Headings.</p>
+    <p><code>&lt;p&gt;</code>: Paragraph.</p>
+    <p><code>&lt;br&gt;</code>: Line break.</p>
+    <p><code>&lt;hr&gt;</code>: Horizontal line.</p>
+    <p><code>&lt;b&gt;</code> / <code>&lt;strong&gt;</code>: Bold text.</p>
+    <p><code>&lt;i&gt;</code> / <code>&lt;em&gt;</code>: Italicized text.</p>
+    <p><code>&lt;u&gt;</code>: Underlined text.</p>
+    <p><code>&lt;s&gt;</code> / <code>&lt;del&gt;</code>: Strikethrough/deleted text.</p>
+    <p><code>&lt;sup&gt;</code> / <code>&lt;sub&gt;</code>: Superscript / subscript.</p>
+  </section>
+
+  <section>
+    <h2>4. Lists</h2>
+    <p><code>&lt;ol&gt;</code>: Ordered list.</p>
+    <p><code>&lt;ul&gt;</code>: Unordered list.</p>
+    <p><code>&lt;li&gt;</code>: List item.</p>
+    <p><code>&lt;dl&gt;</code>: Definition list.</p>
+    <p><code>&lt;dt&gt;</code>: Term in definition list.</p>
+    <p><code>&lt;dd&gt;</code>: Definition of the term.</p>
+  </section>
+
+  <section>
+    <h2>5. Tables</h2>
+    <p><code>&lt;table&gt;</code>, <code>&lt;caption&gt;</code>, <code>&lt;thead&gt;</code>, <code>&lt;tbody&gt;</code>, <code>&lt;tfoot&gt;</code></p>
+    <p><code>&lt;tr&gt;</code>: Table row.</p>
+    <p><code>&lt;th&gt;</code>: Header cell.</p>
+    <p><code>&lt;td&gt;</code>: Table cell.</p>
+    <p><code>colspan</code>, <code>rowspan</code>: Merge cells.</p>
+    <p><code>border</code>, <code>cellpadding</code>, <code>cellspacing</code>: Table appearance control.</p>
+  </section>
+
+  <section>
+    <h2>6. Forms and Inputs</h2>
+    <p><code>&lt;form&gt;</code>, <code>&lt;fieldset&gt;</code>, <code>&lt;legend&gt;</code></p>
+    <p><code>&lt;label&gt;</code>, <code>&lt;input&gt;</code>, <code>&lt;select&gt;</code>, <code>&lt;option&gt;</code>, <code>&lt;textarea&gt;</code></p>
+    <p><code>&lt;button&gt;</code>, <code>&lt;input type="submit"&gt;</code>, <code>&lt;input type="reset"&gt;</code></p>
+    <p><strong>HTML5 Input Types:</strong> <code>email</code>, <code>date</code>, <code>tel</code>, <code>color</code>, <code>range</code></p>
+    <p><strong>Common Attributes:</strong> <code>required</code>, <code>placeholder</code>, <code>pattern</code>, <code>min</code>, <code>max</code>, <code>autofocus</code></p>
+  </section>
+
+  <section>
+    <h2>7. Multimedia</h2>
+    <p><code>&lt;img&gt;</code>: Images</p>
+    <p><code>&lt;audio&gt;</code>: Audio</p>
+    <p><code>&lt;video&gt;</code>: Video</p>
+    <p><code>&lt;source&gt;</code>: Media source</p>
+    <p><code>alt</code>: Alternative text</p>
+  </section>
+
+  <hr>
+
+  <h1>CSS Fundamentals</h1>
+
+  <section>
+    <h2>1. Syntax and Selectors</h2>
+    <p><strong>Selector:</strong> Element/class/id</p>
+    <p><strong>Property:</strong> CSS style rule</p>
+    <p><strong>Value:</strong> What is assigned (e.g., <code>blue</code>, <code>10px</code>)</p>
+  </section>
+
+  <section>
+    <h2>2. CSS Box Model</h2>
+    <p><strong>Content</strong>, <strong>Padding</strong>, <strong>Border</strong>, <strong>Margin</strong></p>
+    <p><code>box-sizing: content-box</code> (default), <code>border-box</code></p>
+  </section>
+
+  <section>
+    <h2>3. Text and Font Styling</h2>
+    <p><code>font-family</code>, <code>font-size</code>, <code>font-weight</code>, <code>font-style</code></p>
+    <p><code>text-align</code>, <code>text-decoration</code>, <code>text-transform</code></p>
+    <p><code>letter-spacing</code>, <code>word-spacing</code>, <code>text-shadow</code></p>
+    <p><code>color</code>: Text color</p>
+  </section>
+
+  <section>
+    <h2>4. Backgrounds</h2>
+    <p><code>background-color</code>, <code>background-image</code>, <code>background-repeat</code></p>
+    <p><code>background-position</code>, <code>background-size</code>, <code>background-attachment</code></p>
+    <p><code>background-origin</code>, <code>background-clip</code></p>
+  </section>
+
+  <section>
+    <h2>5. Layout and Positioning</h2>
+    <p><code>display</code>: block, inline, flex, grid</p>
+    <p><code>position</code>: static, relative, absolute, fixed, sticky</p>
+    <p><code>top</code>, <code>left</code>, <code>right</code>, <code>bottom</code></p>
+    <p><code>z-index</code>, <code>float</code>, <code>clear</code></p>
+  </section>
+
+  <h1>CSS3 Advanced Features</h1>
+
+  <section>
+    <h2>1. Transitions</h2>
+    <p><code>transition-property</code>, <code>transition-duration</code>, <code>transition-timing-function</code>, <code>transition-delay</code></p>
+  </section>
+
+  <section>
+    <h2>2. Transforms</h2>
+    <p><code>transform</code>, <code>transform-origin</code>, <code>transform-style</code></p>
+    <p><code>perspective</code>, <code>backface-visibility</code></p>
+  </section>
+
+  <section>
+    <h2>3. Animations</h2>
+    <p><code>@keyframes</code>, <code>animation-name</code>, <code>animation-duration</code></p>
+    <p><code>animation-delay</code>, <code>animation-timing-function</code>, <code>animation-iteration-count</code></p>
+    <p><code>animation-direction</code>, <code>animation-fill-mode</code>, <code>animation-play-state</code></p>
+  </section>
+
+  <section>
+    <h2>4. Advanced Selectors</h2>
+    <p><code>[attribute]</code>, <code>[attribute=value]</code>, <code>[attribute^=value]</code>, <code>[attribute$=value]</code>, <code>[attribute*=value]</code></p>
+    <p><code>:nth-child(n)</code>, <code>:first-child</code>, <code>:empty</code></p>
+  </section>
+
+  <section>
+    <h2>5. Media Queries</h2>
+    <p><code>@media screen and (max-width: 600px)</code></p>
+    <p><code>@media print</code>, <code>@media (orientation: portrait)</code>, <code>@media (min-resolution: 300dpi)</code></p>
+  </section>
+
+  <section>
+    <h2>CSS Variables</h2>
+    <p><code>--variable-name</code>: Declares a custom variable.</p>
+    <p><code>var(--variable-name)</code>: Uses a CSS variable.</p>
+    <p><code>:root</code>: Global scope for variables.</p>
+  </section>
+</body>
+</html>

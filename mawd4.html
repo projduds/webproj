@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Database Systems & ASP.NET Overview</title>
+  <style>
+    header {
+    position: sticky;
+    top: 0;
+    background-color: #eaeaea;
+    padding: 15px 20px;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #ccc;
+    text-align: center;
+    z-index: 1000;
+    }
+
+    header h1 {
+    margin: 10px 0;
+    font-size: 24px;
+    }
+
+    .back-button {
+    display: inline-block;
+    background-color: #3498db;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 10px;
+    }
+
+    .back-button:hover {
+    background-color: #2980b9;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      padding: 20px;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    h1, h2, h3 {
+      color: #2c3e50;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    code {
+      background-color: #eee;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+
+    section {
+      margin-bottom: 40px;
+    }
+  </style>
+</head>
+<body>
+    <header>
+    <a href="javascript:window.history.back();" class="back-button">Back</a>
+    <h1>Mobile App and Web Development</h1>
+    <p>Explore:</p>
+  </header>
+    <h1>MODULE 1</h1>
+  <h1>Database Systems vs. File Systems</h1>
+
+  <section>
+    <h2>File Systems</h2>
+    <p>Organize data as flat files. However, they are:</p>
+    <ul>
+      <li>Time-consuming to manage</li>
+      <li>Inefficient for large data queries</li>
+      <li>Difficult to secure and maintain</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Database Systems</h2>
+    <p>Use a Database Management System (DBMS) for structured and secure data storage.</p>
+
+    <h3>Key Components</h3>
+    <ul>
+      <li><strong>Hardware:</strong> Physical servers and storage</li>
+      <li><strong>Software:</strong> DBMS (e.g., MySQL), OS, tools</li>
+      <li><strong>Peopleware:</strong> DBAs, designers, users</li>
+      <li><strong>Procedures:</strong> Policies for handling data</li>
+      <li><strong>Data:</strong> Facts and metadata</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Database Models</h2>
+    <ul>
+      <li><strong>Conceptual Model:</strong> What data is represented</li>
+      <li><strong>Implementation Model:</strong> How data is structured and stored</li>
+    </ul>
+
+    <h3>Core Building Blocks</h3>
+    <ul>
+      <li><strong>Entities:</strong> Objects (e.g., Student)</li>
+      <li><strong>Attributes:</strong> Properties (e.g., StudentID)</li>
+      <li><strong>Relationships:</strong> Links (1:1, 1:*, etc.)</li>
+      <li><strong>Constraints:</strong> Rules (e.g., Age ≥ 18)</li>
+    </ul>
+
+    <h3>Types of Data Models</h3>
+    <ul>
+      <li><strong>Relational:</strong> Tables (rows and columns)</li>
+      <li><strong>Hierarchical:</strong> Tree structure (one parent per child)</li>
+      <li><strong>Network:</strong> Graph structure (multiple parents allowed)</li>
+      <li><strong>E-R Model:</strong> Visual entity-relationship diagrams</li>
+      <li><strong>Object-Oriented:</strong> Combines data and behavior</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>SQL Basics</h2>
+    <p>SQL (Structured Query Language) is used to manage relational databases.</p>
+
+    <h3>Main Categories</h3>
+    <ul>
+      <li><strong>DDL:</strong> Data Definition Language – <code>CREATE</code>, <code>ALTER</code>, <code>DROP</code></li>
+      <li><strong>DML:</strong> Data Manipulation Language – <code>SELECT</code>, <code>INSERT</code>, <code>UPDATE</code>, <code>DELETE</code></li>
+      <li><strong>DCL:</strong> Data Control Language – <code>GRANT</code>, <code>REVOKE</code></li>
+    </ul>
+
+    <h3>Advanced SQL Operations</h3>
+    <ul>
+      <li><strong>Aggregation Functions:</strong> <code>SUM()</code>, <code>AVG()</code>, <code>COUNT()</code></li>
+      <li><strong>Joins:</strong>
+        <ul>
+          <li><strong>INNER JOIN:</strong> Matches records from both tables</li>
+          <li><strong>LEFT/RIGHT OUTER JOIN:</strong> Includes unmatched records</li>
+          <li><strong>FULL OUTER JOIN:</strong> All matched and unmatched rows</li>
+        </ul>
+      </li>
+      <li><strong>Views:</strong> Virtual tables created from queries for simplicity and security</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Normalization</h2>
+    <p>Improves data organization by reducing redundancy.</p>
+
+    <h3>Normal Forms</h3>
+    <ul>
+      <li><strong>1NF:</strong> Atomic columns; no repeating groups</li>
+      <li><strong>2NF:</strong> Full functional dependency on the primary key</li>
+      <li><strong>3NF:</strong> Removes transitive dependencies</li>
+      <li><strong>Higher Forms:</strong> BCNF, 4NF, 5NF – handle complex dependencies</li>
+    </ul>
+  </section>
+
+  <hr>
+
+  <h1>ASP.NET Overview</h1>
+
+  <section>
+    <h2>What is ASP.NET?</h2>
+    <p>ASP.NET is a web development framework for building dynamic web applications on the .NET platform.</p>
+
+    <h3>Framework Types</h3>
+    <ul>
+      <li><strong>Web Forms:</strong> Visual drag-and-drop UI</li>
+      <li><strong>MVC:</strong> Structured, scalable, and testable</li>
+      <li><strong>Web Pages:</strong> Simple, script-based web pages</li>
+    </ul>
+
+    <h3>Features</h3>
+    <ul>
+      <li>Security mechanisms</li>
+      <li>HTML5 & Bootstrap support</li>
+      <li>Built-in ORM via Entity Framework</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>ASP.NET MVC Structure</h2>
+    <ul>
+      <li><strong>Model:</strong> Data and business logic</li>
+      <li><strong>View:</strong> UI representation (HTML, Razor)</li>
+      <li><strong>Controller:</strong> Handles user requests and data flow</li>
+    </ul>
+
+    <h3>Benefits</h3>
+    <ul>
+      <li>Clear separation of concerns</li>
+      <li>Easier to test and maintain</li>
+      <li>URL routing and clean URLs</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Data Handling in ASP.NET</h2>
+
+    <h3>Entity Framework (EF)</h3>
+    <p>ORM for interacting with databases using classes (POCOs)</p>
+
+    <h3>Validation</h3>
+    <ul>
+      <li>Data Annotations: <code>[Required]</code>, <code>[StringLength]</code></li>
+      <li><code>ModelState</code>: Validates submitted model data</li>
+    </ul>
+
+    <h3>Forms</h3>
+    <p>Use HTML helpers like <code>@Html.TextBoxFor</code> to bind input fields to model properties</p>
+  </section>
+
+  <section>
+    <h2>Key Takeaways</h2>
+    <ul>
+      <li>Databases offer secure, efficient, and organized data handling compared to file systems</li>
+      <li>SQL is foundational for managing relational databases</li>
+      <li>Normalization prevents redundancy and increases consistency</li>
+      <li>ASP.NET MVC supports scalable and maintainable web app development</li>
+    </ul>
+  </section>
+
+
+
+  
+  <h1>MODULE 2</h1>
+  <h1>Introduction to .NET MAUI</h1>
+
+  <section>
+    <h2>Overview</h2>
+    <p>.NET MAUI (Multi-platform App UI) is a cross-platform framework used to build native apps for Android, iOS, macOS, and Windows using C# and XAML. It allows developers to create apps with a single codebase using a “write once, run anywhere” approach.</p>
+  </section>
+
+  <section>
+    <h2>Key Features</h2>
+    <ul>
+      <li>Unified single project system for multi-platform development</li>
+      <li>Cross-platform APIs for device features (e.g., GPS, clipboard)</li>
+      <li>Hot Reload for instant UI/code updates</li>
+      <li>Integrated layouts, navigation, and data-binding</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Visual Controls and UI Building Blocks</h2>
+
+    <h3>Core Components</h3>
+    <ul>
+      <li><strong>Application Class:</strong> Manages the app's lifecycle (<code>App.xaml</code>, <code>MauiProgram.cs</code>)</li>
+      <li><strong>Pages:</strong> Represent screens (<code>ContentPage</code>, <code>TabbedPage</code>, <code>FlyoutPage</code>)</li>
+      <li><strong>Views:</strong> UI elements like <code>Label</code>, <code>Button</code>, <code>Image</code>, etc.</li>
+      <li><strong>Layouts:</strong> Structure the UI (<code>StackLayout</code>, <code>Grid</code>, <code>FlexLayout</code>)</li>
+    </ul>
+
+    <h3>Navigation</h3>
+    <ul>
+      <li><strong>Shell:</strong> Streamlines navigation with flyouts, tabs, and URI routing</li>
+      <li><strong>FlyoutItem:</strong> Side menu item</li>
+      <li><strong>TabBar:</strong> Bottom tab navigation component</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>UI Design with XAML</h2>
+
+    <h3>Basics</h3>
+    <ul>
+      <li>Uses XML-based syntax to declare UI elements</li>
+      <li>Separates UI from logic</li>
+      <li>Example: <code>&lt;Label Text="Hello" /&gt;</code> maps to <code>new Label()</code> in C#</li>
+      <li>Supports event handling and data-binding</li>
+    </ul>
+
+    <h3>Common Layouts</h3>
+    <ul>
+      <li><strong>StackLayout:</strong> Vertical or horizontal stacking</li>
+      <li><strong>Grid:</strong> Structured rows and columns</li>
+      <li><strong>AbsoluteLayout:</strong> Uses fixed coordinates</li>
+      <li><strong>FlexLayout:</strong> Wraps elements automatically</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Data Storage Options</h2>
+    <ul>
+      <li><strong>Preferences:</strong> Store simple key-value pairs (e.g., user settings)</li>
+      <li><strong>File System:</strong> Save files within app sandbox (e.g., logs, .txt files)</li>
+      <li><strong>SQLite Database:</strong>
+        <ul>
+          <li>Use SQLite.NET ORM for object-database mapping</li>
+          <li>Supports async operations via <code>SQLiteAsyncConnection</code></li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Web Services and Connectivity</h2>
+
+    <h3>Network Detection</h3>
+    <ul>
+      <li>Check with <code>Connectivity.NetworkAccess</code></li>
+      <li>Use <code>Connectivity.ConnectivityChanged</code> for real-time updates</li>
+    </ul>
+
+    <h3>RESTful APIs</h3>
+    <ul>
+      <li>Use <code>HttpClient</code> for <code>GET</code>, <code>POST</code>, <code>PUT</code>, <code>DELETE</code></li>
+      <li>Parse JSON using <code>JsonConvert.SerializeObject()</code> / <code>DeserializeObject()</code></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Navigation Patterns</h2>
+    <ul>
+      <li><strong>Flyout Navigation:</strong> Sidebar menu using <code>FlyoutItem</code> and <code>ShellContent</code></li>
+      <li><strong>Tab Navigation:</strong> Bottom/top tabs via <code>TabBar</code></li>
+      <li><strong>Hierarchical Navigation:</strong> Stack-based using <code>NavigationPage</code></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Platform Integration</h2>
+
+    <h3>Device Features</h3>
+    <p>Access native APIs like GPS, accelerometer, clipboard, and file picker via a cross-platform abstraction layer.</p>
+
+    <h3>App Sandbox</h3>
+    <p>Secure platform-specific file storage using <code>FileSystem.AppDataDirectory</code></p>
+  </section>
+
+  <section>
+    <h2>Key Takeaways</h2>
+    <ul>
+      <li>.NET MAUI enables code reuse across platforms with native performance</li>
+      <li>XAML + C# offer flexible and responsive UIs</li>
+      <li>Supports multiple data storage options for different use cases</li>
+      <li>Integrates REST APIs, Shell navigation, and Hot Reload for rapid development</li>
+    </ul>
+  </section>
+
+
+</body>
+</html>

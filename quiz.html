@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Quiz</title>
+  <link rel="stylesheet" href="quiz.css">
+</head>
+<body>
+  <div class="quiz-container">
+
+    <h1>Quick Quiz</h1>
+
+    <div class="question">
+      <p>1. What does the "arena approach" to politics emphasize?</p>
+      <button onclick="checkAnswer(this, false)">A. Informal social movements</button>
+      <button onclick="checkAnswer(this, true)">B. Formal state institutions and policies</button>
+      <button onclick="checkAnswer(this, false)">C. Corporate governance</button>
+    </div>
+
+    <div class="question">
+      <p>2. Which is an example of an "input" in Easton’s political system?</p>
+      <button onclick="checkAnswer(this, false)">A. A new tax law</button>
+      <button onclick="checkAnswer(this, true)">B. Public demand for healthcare</button>
+      <button onclick="checkAnswer(this, false)">C. A Supreme Court ruling</button>
+    </div>
+
+    <div class="question">
+      <p>3. What is the "second face of power"?</p>
+      <button onclick="checkAnswer(this, false)">A. Winning elections</button>
+      <button onclick="checkAnswer(this, true)">B. Controlling which issues are debated</button>
+      <button onclick="checkAnswer(this, false)">C. Distributing welfare benefits</button>
+    </div>
+
+    <div class="result">
+      <p id="score">Score: 0</p>
+      <button onclick="resetQuiz()">Retry</button>
+    </div>
+  </div>
+
+  <script>
+    let score = 0;
+    let answered = 0;
+
+    function checkAnswer(button, isCorrect) {
+      if (button.classList.contains("answered")) return; // Prevent double clicking
+      button.classList.add("answered");
+
+      const allButtons = button.parentElement.querySelectorAll("button");
+      allButtons.forEach(btn => btn.disabled = true);
+
+      if (isCorrect) {
+        score++;
+        button.classList.add("correct");
+      } else {
+        button.classList.add("wrong");
+      }
+
+      answered++;
+      document.getElementById("score").textContent = `Score: ${score}`;
+
+      if (answered === 3) {
+        document.querySelector(".result").style.display = "block";
+      }
+    }
+
+    function resetQuiz() {
+      score = 0;
+      answered = 0;
+      document.getElementById("score").textContent = "Score: 0";
+      document.querySelectorAll("button").forEach(btn => {
+        btn.classList.remove("correct", "wrong", "answered");
+        btn.disabled = false;
+      });
+      document.querySelector(".result").style.display = "none";
+    }
+  </script>
+</body>
+    <a href="javascript:window.history.back();" class="back-button">Back</a>
+</html>

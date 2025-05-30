@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Quiz</title>
+  <link rel="stylesheet" href="quiz.css">
+</head>
+    <a href="javascript:window.history.back();" class="back-button">Back</a>
+<body>
+  <div class="quiz-container">
+
+    <h1>Quick Quiz</h1>
+
+    <div class="question">
+      <p>1. What is the term for a single line in a poem?</p>
+      <button onclick="checkAnswer(this, false)">A. Stanza</button>
+      <button onclick="checkAnswer(this, true)">B. Verse</button>
+      <button onclick="checkAnswer(this, false)">C. Meter</button>
+      <button onclick="checkAnswer(this, false)">D. Rhyme</button>
+    </div>
+
+    <div class="question">
+      <p>2. Which element of poetry refers to the pattern of rhyming words?</p>
+      <button onclick="checkAnswer(this, false)">A. Imagery</button>
+      <button onclick="checkAnswer(this, false)">B. Theme</button>
+      <button onclick="checkAnswer(this, true)">C. Rhyme</button>
+      <button onclick="checkAnswer(this, false)">D. Meter</button>
+    </div>
+
+    <div class="question">
+      <p>3. Which point of view uses "I" to narrate the story?</p>
+      <button onclick="checkAnswer(this, false)">A. Third-person omniscient</button>
+      <button onclick="checkAnswer(this, false)">B. First-person</button>
+      <button onclick="checkAnswer(this, true)">C. Second-person</button>
+      <button onclick="checkAnswer(this, false)">D. Third-person limited </button>
+    </div>
+    <div class="question">
+      <p>4. In a story’s plot, what is the "climax"?</p>
+      <button onclick="checkAnswer(this, false)">A. The introduction of characters</button>
+      <button onclick="checkAnswer(this, false)">B. The most suspenseful or emotional moment</button>
+      <button onclick="checkAnswer(this, true)">C. The resolution of all conflicts</button>
+      <button onclick="checkAnswer(this, false)">D. The background setting</button>
+    </div>
+    <div class="question">
+      <p>5. A "round" character is best described as:</p>
+      <button onclick="checkAnswer(this, false)">A. Static and unchanging</button>
+      <button onclick="checkAnswer(this, false)">B. Complex and three-dimensional</button>
+      <button onclick="checkAnswer(this, true)">C. A minor character</button>
+      <button onclick="checkAnswer(this, false)">D. A symbolic object</button>
+    </div>
+        <div class="question">
+        <p>6.  Which type of irony occurs when a character's actions have the opposite effect of what was intended?</p>
+        <button onclick="checkAnswer(this, false)">A. Verbal irony</button>
+        <button onclick="checkAnswer(this, true)">B. Situational irony</button>
+        <button onclick="checkAnswer(this, false)">C. Dramatic irony</button>
+        <button onclick="checkAnswer(this, false)">D. Cosmic irony</button>
+    </div>
+    <div class="question">
+      <p>7. Which theory views social change as a path to stability?</p>
+      <button onclick="checkAnswer(this, true)">A. Evolutionary Theory </button>
+      <button onclick="checkAnswer(this, false)">B. Equilibrium Theory</button>
+      <button onclick="checkAnswer(this, false)">C. Civil Society Perspective</button>
+      <button onclick="checkAnswer(this, false)">D. Grassroots Theory</button>
+    </div>
+    <div class="question">
+      <p>8. What does Evolutionary Theory emphasize?</p>
+      <button onclick="checkAnswer(this, false)">A. Immediate societal collapse</button>
+      <button onclick="checkAnswer(this, false)">B. Increasing complexity through adaptation</button>
+      <button onclick="checkAnswer(this, true)">C. Static cultural norms</button>
+      <button onclick="checkAnswer(this, false)">D. Elimination of social structures</button>
+    </div>
+    <div class="question">
+      <p>9. A community defined by shared interests rather than location aligns with:</p>
+      <button onclick="checkAnswer(this, false)">A. Institutional Perspective</button>
+      <button onclick="checkAnswer(this, true)">B. Definition of Community</button>
+      <button onclick="checkAnswer(this, false)">C. Social Structure</button>
+      <button onclick="checkAnswer(this, false)">D. Equilibrium Theory</button>
+    </div>
+    <div class="question">
+      <p>10. Which perspective highlights professional activities across institutions?</p>
+      <button onclick="checkAnswer(this, false)">A. Civil Society</button>
+      <button onclick="checkAnswer(this, true)">B. Institutional Perspective</button>
+      <button onclick="checkAnswer(this, false)">C. Local Community</button>
+      <button onclick="checkAnswer(this, false)">D. Grassroots Community</button>
+    </div>
+
+    <div class="result">
+      <p id="score">Score: 0</p>
+      <button onclick="resetQuiz()">Retry</button>
+    </div>
+  </div>
+
+  <script>
+    let score = 0;
+    let answered = 0;
+
+    function checkAnswer(button, isCorrect) {
+      if (button.classList.contains("answered")) return; // Prevent double clicking
+      button.classList.add("answered");
+
+      const allButtons = button.parentElement.querySelectorAll("button");
+      allButtons.forEach(btn => btn.disabled = true);
+
+      if (isCorrect) {
+        score++;
+        button.classList.add("correct");
+      } else {
+        button.classList.add("wrong");
+      }
+
+      answered++;
+      document.getElementById("score").textContent = `Score: ${score}`;
+
+      if (answered === 3) {
+        document.querySelector(".result").style.display = "block";
+      }
+    }
+
+    function resetQuiz() {
+    score = 0;
+    answered = 0;
+    document.getElementById("score").textContent = "Score: 0";
+    document.querySelectorAll("button").forEach(btn => {
+        btn.classList.remove("correct", "wrong", "answered");
+        btn.disabled = false;
+    });
+    document.querySelector(".result").style.display = "none";
+
+    // Scroll to top
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth" // optional for smooth scroll
+    });
+    }
+
+  </script>
+</body>
+
+</html>

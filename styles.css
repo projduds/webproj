@@ -1,0 +1,135 @@
+
+body {
+  font-family: Arial, sans-serif;
+  background: #547792; 
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  background-color: #94b4c1; 
+  color: #ecefca;             /* Pale lime for contrast */
+  padding: 2rem;
+  text-align: center;
+}
+
+h2 {
+  color: #dad7cd;
+  margin: 30px;
+}
+
+h3 {
+  margin: 10px;
+  color: #ecefca;
+}
+
+/* Button Grid Layout */
+.button-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 800px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+/* Strand Card Styles */
+.strand-card {
+  background: linear-gradient(145deg, #94b4c1, #94b4c1); /* Muted green to dark olive */
+  color: #ffffff;
+  padding: 30px 20px;
+  border-radius: 16px;
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 600;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-height: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.strand-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.strand-card a {
+  margin-top: 12px;
+  padding: 10px 16px;
+  background-color: #547792;
+  color: #424769;
+  border-radius: 8px;
+  font-size: 14px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.strand-card a:hover {
+  background-color: #ecefca;
+  transform: scale(1.05);
+  color: #213448;
+}
+
+.strand-card a.quiz-link {
+  font-size: 14px;
+  opacity: 0.85;
+  margin-top: 20px;
+  color: #dad7cd;
+  text-decoration: underline;
+}
+
+.strand-card a.quiz-link:hover {
+  color: #ecefca;
+}
+
+/* Dropdown */
+.dropbtn {
+  background-color: #547792;
+  color: #ecefca;
+  padding: 15px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+}
+
+.dropbtn:hover {
+  background-color: #547792;
+}
+
+.dropdown-content {
+  background-color: #dad7cd;
+}
+
+/* List Styling */
+ul li a {
+  color: #547792;
+}
+
+ul li a:hover {
+  color: #f9b17a;
+}
+
+/* Back Button */
+.back-button {
+  background-color: #94b4c1;
+  color: #424769;
+}
+
+.back-button:hover {
+  background-color: #547792;
+  color: #213448;
+}
+
+/* Section Styling */
+section {
+  background-color: #213448;
+  padding: 2rem;
+  border-radius: 16px;
+  margin-bottom: 3rem;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+}

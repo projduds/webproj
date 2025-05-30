@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Quiz</title>
+  <link rel="stylesheet" href="quiz.css">
+</head>
+    <a href="javascript:window.history.back();" class="back-button">Back</a>
+<body>
+  <div class="quiz-container">
+
+    <h1>Quick Quiz</h1>
+
+    <div class="question">
+      <p>1. What is the purpose of the Common Language Runtime (CLR) in .NET?</p>
+      <button onclick="checkAnswer(this, false)">A. To compile C# to Java</button>
+      <button onclick="checkAnswer(this, true)">B. To manage memory, code execution, and security</button>
+      <button onclick="checkAnswer(this, false)">C. To create database schemas</button>
+      <button onclick="checkAnswer(this, false)">D. To run C++ code in C#</button>
+    </div>
+
+    <div class="question">
+      <p>2. Which C# keyword is used to declare a constant value?</p>
+      <button onclick="checkAnswer(this, false)">A. static</button>
+      <button onclick="checkAnswer(this, true)">B. const </button>
+      <button onclick="checkAnswer(this, false)">C. var</button>
+      <button onclick="checkAnswer(this, false)">D. readonly</button>
+    </div>
+
+    <div class="question">
+      <p>3.  What method is used to read input from the console?</p>
+      <button onclick="checkAnswer(this, false)">A. Console.Write()</button>
+      <button onclick="checkAnswer(this, false)">B. Console.Print()</button>
+      <button onclick="checkAnswer(this, false)">C. Console.Read()</button>
+      <button onclick="checkAnswer(this, true)">D. Console.ReadLine()</button>
+    </div>
+    <div class="question">
+      <p>4. What is the result of the modulus operator (%)?</p>
+      <button onclick="checkAnswer(this, false)">A. Division result</button>
+      <button onclick="checkAnswer(this, true)">B. Remainder of a division</button>
+      <button onclick="checkAnswer(this, false)">C. Multiplication</button>
+      <button onclick="checkAnswer(this, false)">D. Absolute value</button>
+    </div>
+    <div class="question">
+      <p>5. Which loop guarantees at least one execution before checking the condition?</p>
+      <button onclick="checkAnswer(this, false)">A. for</button>
+      <button onclick="checkAnswer(this, false)">B. while</button>
+      <button onclick="checkAnswer(this, true)">C. do-while</button>
+      <button onclick="checkAnswer(this, false)">D. foreach</button>
+    </div>
+        <div class="question">
+        <p>6. What is the output of 5 + "5" in JavaScript?</p>
+        <button onclick="checkAnswer(this, false)">A. 10</button>
+        <button onclick="checkAnswer(this, true)">B. 55</button>
+        <button onclick="checkAnswer(this, false)">C. Error</button>
+        <button onclick="checkAnswer(this, false)">D. undefined</button>
+    </div>
+    <div class="question">
+      <p>7. Which of the following is NOT a valid JavaScript data type?</p>
+      <button onclick="checkAnswer(this, false)">A. Number</button>
+      <button onclick="checkAnswer(this, false)">B. Boolean</button>
+      <button onclick="checkAnswer(this, true)">C. Float</button>
+      <button onclick="checkAnswer(this, false)">D. String</button>
+    </div>
+    <div class="question">
+      <p>8. What does the confirm() function return if the user clicks “OK”?</p>
+      <button onclick="checkAnswer(this, false)">A. "true"</button>
+      <button onclick="checkAnswer(this, false)">B. true</button>
+      <button onclick="checkAnswer(this, true)">C. "yes"</button>
+      <button onclick="checkAnswer(this, false)">D. 1</button>
+    </div>
+    <div class="question">
+      <p>9. Which method is used to select an HTML element by its ID?</p>
+      <button onclick="checkAnswer(this, false)">A. getElementByClass()</button>
+      <button onclick="checkAnswer(this, false)">B. getElementsByTagName()</button>
+      <button onclick="checkAnswer(this, true)">C. getElementById()</button>
+      <button onclick="checkAnswer(this, false)">D.  querySelectorAll()</button>
+    </div>
+    <div class="question">
+      <p>10. Which loop ensures the code inside it executes at least once?</p>
+      <button onclick="checkAnswer(this, false)">A. while</button>
+      <button onclick="checkAnswer(this, false)">B. for</button>
+      <button onclick="checkAnswer(this, true)">C. do-while</button>
+      <button onclick="checkAnswer(this, false)">D. foreach</button>
+    </div>
+
+    <div class="result">
+      <p id="score">Score: 0</p>
+      <button onclick="resetQuiz()">Retry</button>
+    </div>
+  </div>
+
+  <script>
+    let score = 0;
+    let answered = 0;
+
+    function checkAnswer(button, isCorrect) {
+      if (button.classList.contains("answered")) return; // Prevent double clicking
+      button.classList.add("answered");
+
+      const allButtons = button.parentElement.querySelectorAll("button");
+      allButtons.forEach(btn => btn.disabled = true);
+
+      if (isCorrect) {
+        score++;
+        button.classList.add("correct");
+      } else {
+        button.classList.add("wrong");
+      }
+
+      answered++;
+      document.getElementById("score").textContent = `Score: ${score}`;
+
+      if (answered === 3) {
+        document.querySelector(".result").style.display = "block";
+      }
+    }
+
+    function resetQuiz() {
+    score = 0;
+    answered = 0;
+    document.getElementById("score").textContent = "Score: 0";
+    document.querySelectorAll("button").forEach(btn => {
+        btn.classList.remove("correct", "wrong", "answered");
+        btn.disabled = false;
+    });
+    document.querySelector(".result").style.display = "none";
+
+    // Scroll to top
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth" // optional for smooth scroll
+    });
+    }
+
+  </script>
+</body>
+
+</html>

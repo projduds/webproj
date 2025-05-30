@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Quiz</title>
+  <link rel="stylesheet" href="quiz.css">
+</head>
+    <a href="javascript:window.history.back();" class="back-button">Back</a>
+<body>
+  <div class="quiz-container">
+
+    <h1>Quick Quiz</h1>
+
+    <div class="question">
+      <p>1. What is the primary purpose of creative writing?</p>
+      <button onclick="checkAnswer(this, false)">A. To present factual information</button>
+      <button onclick="checkAnswer(this, true)">B. To express thoughts and feelings imaginatively</button>
+      <button onclick="checkAnswer(this, false)">C. To provide technical instructions</button>
+      <button onclick="checkAnswer(this, false)">D. To summarize research findings</button>
+    </div>
+
+    <div class="question">
+      <p>2. Which of these is NOT a form of creative writing?</p>
+      <button onclick="checkAnswer(this, false)">A. Poetry</button>
+      <button onclick="checkAnswer(this, false)">B. Theme</button>
+      <button onclick="checkAnswer(this, true)">C. Scientific reports</button>
+      <button onclick="checkAnswer(this, false)">D. Short stories</button>
+    </div>
+
+    <div class="question">
+      <p>3. How does creative writing differ from technical writing?</p>
+      <button onclick="checkAnswer(this, true)">A. It highlights narrative and imagination</button>
+      <button onclick="checkAnswer(this, false)">B. It focuses on strict guidelines</button>
+      <button onclick="checkAnswer(this, false)">C. It avoids character development</button>
+      <button onclick="checkAnswer(this, false)">D. It prioritizes data analysis</button>
+    </div>
+    <div class="question">
+      <p>4. What literary element is most associated with creative writing?</p>
+      <button onclick="checkAnswer(this, false)">A. Footnotes</button>
+      <button onclick="checkAnswer(this, true)">B. Imagery</button>
+      <button onclick="checkAnswer(this, false)">C. Charts and graphs</button>
+      <button onclick="checkAnswer(this, false)">D. Technical jargon</button>
+    </div>
+    <div class="question">
+      <p>5. Which phrase best describes "sensory words"?</p>
+      <button onclick="checkAnswer(this, false)">A. Static and unchanging</button>
+      <button onclick="checkAnswer(this, true)">B. Words that appeal to the five senses</button>
+      <button onclick="checkAnswer(this, false)">C. Words used in legal documents</button>
+      <button onclick="checkAnswer(this, false)">D. Words with multiple meanings</button>
+    </div>
+        <div class="question">
+        <p>6.  What is a key element that helps a trend gain popularity?</p>
+        <button onclick="checkAnswer(this, false)">A. Unique content</button>
+        <button onclick="checkAnswer(this, true)">B. Situational irony</button>
+        <button onclick="checkAnswer(this, false)">C. Dramatic irony</button>
+        <button onclick="checkAnswer(this, false)">D. Cosmic irony</button>
+    </div>
+    <div class="question">
+      <p>7. Which theory views social change as a path to stability?</p>
+      <button onclick="checkAnswer(this, true)">A. Evolutionary Theory </button>
+      <button onclick="checkAnswer(this, false)">B. Complicated language</button>
+      <button onclick="checkAnswer(this, false)">C. Limited audience</button>
+      <button onclick="checkAnswer(this, false)">D. Avoiding social media</button>
+    </div>
+    <div class="question">
+      <p>8. Why is tuning important in making a trend successful?</p>
+      <button onclick="checkAnswer(this, false)">A. It ensures the idea is kept secret</button>
+      <button onclick="checkAnswer(this, true)">B. It involves launching at the right time with influencer support</button>
+      <button onclick="checkAnswer(this, false)">C. It prevents virality</button>
+      <button onclick="checkAnswer(this, false)">D. It limits distribution</button>
+    </div>
+    <div class="question">
+      <p>9. What does virality mean in the context of trends?</p>
+      <button onclick="checkAnswer(this, false)">A. The idea remains unknown</button>
+      <button onclick="checkAnswer(this, true)">B. The idea becomes widely talked about quickly</button>
+      <button onclick="checkAnswer(this, false)">C. The idea is only shared privately</button>
+      <button onclick="checkAnswer(this, false)">D. The idea is outdated</button>
+    </div>
+    <div class="question">
+      <p>10. How do influencers contribute to trends?</p>
+      <button onclick="checkAnswer(this, false)">A. By keeping trends exclusive</button>
+      <button onclick="checkAnswer(this, true)">B. By using their credibility to spread ideas</button>
+      <button onclick="checkAnswer(this, false)">C. By avoiding social media</button>
+      <button onclick="checkAnswer(this, false)">D. By discouraging public interest</button>
+    </div>
+
+    <div class="result">
+      <p id="score">Score: 0</p>
+      <button onclick="resetQuiz()">Retry</button>
+    </div>
+  </div>
+
+  <script>
+    let score = 0;
+    let answered = 0;
+
+    function checkAnswer(button, isCorrect) {
+      if (button.classList.contains("answered")) return; // Prevent double clicking
+      button.classList.add("answered");
+
+      const allButtons = button.parentElement.querySelectorAll("button");
+      allButtons.forEach(btn => btn.disabled = true);
+
+      if (isCorrect) {
+        score++;
+        button.classList.add("correct");
+      } else {
+        button.classList.add("wrong");
+      }
+
+      answered++;
+      document.getElementById("score").textContent = `Score: ${score}`;
+
+      if (answered === 3) {
+        document.querySelector(".result").style.display = "block";
+      }
+    }
+
+    function resetQuiz() {
+    score = 0;
+    answered = 0;
+    document.getElementById("score").textContent = "Score: 0";
+    document.querySelectorAll("button").forEach(btn => {
+        btn.classList.remove("correct", "wrong", "answered");
+        btn.disabled = false;
+    });
+    document.querySelector(".result").style.display = "none";
+
+    // Scroll to top
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth" // optional for smooth scroll
+    });
+    }
+
+  </script>
+</body>
+
+</html>

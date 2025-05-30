@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Quiz</title>
+  <link rel="stylesheet" href="quiz.css">
+</head>
+    <a href="javascript:window.history.back();" class="back-button">Back</a>
+<body>
+  <div class="quiz-container">
+
+    <h1>Quick Quiz</h1>
+
+    <div class="question">
+      <p>1. What keyword is used to define a constant in Java?</p>
+      <button onclick="checkAnswer(this, false)">A. const</button>
+      <button onclick="checkAnswer(this, true)">B. final</button>
+      <button onclick="checkAnswer(this, false)">C. static</button>
+      <button onclick="checkAnswer(this, false)">D. constant</button>
+    </div>
+
+    <div class="question">
+      <p>2. WWhich method is used to read an integer input from the user using Scanner?</p>
+      <button onclick="checkAnswer(this, false)">A. nextLine()</button>
+      <button onclick="checkAnswer(this, false)">B. getInt()</button>
+      <button onclick="checkAnswer(this, true)">C. nextInt()</button>
+      <button onclick="checkAnswer(this, false)">D. readInt()</button>
+    </div>
+
+    <div class="question">
+      <p>3. Which access modifier allows a member to be accessed only within its class?</p>
+      <button onclick="checkAnswer(this, false)">A. public</button>
+      <button onclick="checkAnswer(this, false)">B. protected</button>
+      <button onclick="checkAnswer(this, false)">C. default</button>
+      <button onclick="checkAnswer(this, true)">D. private </button>
+    </div>
+    <div class="question">
+      <p>4. What does the break statement do inside a loop?</p>
+      <button onclick="checkAnswer(this, false)">A. Skips current iteration</button>
+      <button onclick="checkAnswer(this, true)">B.  Exits the loop</button>
+      <button onclick="checkAnswer(this, false)">C. Restarts the loop</button>
+      <button onclick="checkAnswer(this, false)">D. Pauses the loop</button>
+    </div>
+    <div class="question">
+      <p>5.What is the default display value of a div element?</p>
+      <button onclick="checkAnswer(this, false)">A. inline</button>
+      <button onclick="checkAnswer(this, false)">B. inline-block</button>
+      <button onclick="checkAnswer(this, true)">C. block</button>
+      <button onclick="checkAnswer(this, false)">D. flex</button>
+    </div>
+        <div class="question">
+        <p>6.  What does HTML stand for?</p>
+        <button onclick="checkAnswer(this, false)">A. Hyper Trainer Marking Language</button>
+        <button onclick="checkAnswer(this, true)">B. HyperText Markup Language</button>
+        <button onclick="checkAnswer(this, false)">C. HighText Machine Language</button>
+        <button onclick="checkAnswer(this, false)">D. HyperTool Markup Language</button>
+    </div>
+    <div class="question">
+      <p>7. Which property is used to change text color in CSS?</p>
+      <button onclick="checkAnswer(this, true)">A. color </button>
+      <button onclick="checkAnswer(this, false)">B. font-color</button>
+      <button onclick="checkAnswer(this, false)">C. text-style</button>
+      <button onclick="checkAnswer(this, false)">D. text-color</button>
+    </div>
+    <div class="question">
+      <p>8. What is the result of 5 % 2 in Java?</p>
+      <button onclick="checkAnswer(this, false)">A. 2</button>
+      <button onclick="checkAnswer(this, false)">B. 0</button>
+      <button onclick="checkAnswer(this, true)">C. 1</button>
+      <button onclick="checkAnswer(this, false)">D. 5</button>
+    </div>
+    <div class="question">
+      <p>9. What symbol is used to select a class in CSS?</p>
+      <button onclick="checkAnswer(this, false)">A. #</button>
+      <button onclick="checkAnswer(this, true)">B. .</button>
+      <button onclick="checkAnswer(this, false)">C. @</button>
+      <button onclick="checkAnswer(this, false)">D. *</button>
+    </div>
+    <div class="question">
+      <p>10. Which CSS property sets the background color?</p>
+      <button onclick="checkAnswer(this, false)">A. color-background</button>
+      <button onclick="checkAnswer(this, true)">B. background-color</button>
+      <button onclick="checkAnswer(this, false)">C. bg-color</button>
+      <button onclick="checkAnswer(this, false)">D. background</button>
+    </div>
+
+    <div class="result">
+      <p id="score">Score: 0</p>
+      <button onclick="resetQuiz()">Retry</button>
+    </div>
+  </div>
+
+  <script>
+    let score = 0;
+    let answered = 0;
+
+    function checkAnswer(button, isCorrect) {
+      if (button.classList.contains("answered")) return; // Prevent double clicking
+      button.classList.add("answered");
+
+      const allButtons = button.parentElement.querySelectorAll("button");
+      allButtons.forEach(btn => btn.disabled = true);
+
+      if (isCorrect) {
+        score++;
+        button.classList.add("correct");
+      } else {
+        button.classList.add("wrong");
+      }
+
+      answered++;
+      document.getElementById("score").textContent = `Score: ${score}`;
+
+      if (answered === 3) {
+        document.querySelector(".result").style.display = "block";
+      }
+    }
+
+    function resetQuiz() {
+    score = 0;
+    answered = 0;
+    document.getElementById("score").textContent = "Score: 0";
+    document.querySelectorAll("button").forEach(btn => {
+        btn.classList.remove("correct", "wrong", "answered");
+        btn.disabled = false;
+    });
+    document.querySelector(".result").style.display = "none";
+
+    // Scroll to top
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth" // optional for smooth scroll
+    });
+    }
+
+  </script>
+</body>
+
+</html>

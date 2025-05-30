@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>C# Programming Fundamentals</title>
+  <style>
+    header {
+    position: sticky;
+    top: 0;
+    background-color: #eaeaea;
+    padding: 15px 20px;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #ccc;
+    text-align: center;
+    z-index: 1000;
+    }
+
+    header h1 {
+    margin: 10px 0;
+    font-size: 24px;
+    }
+
+    .back-button {
+    display: inline-block;
+    background-color: #3498db;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 10px;
+    }
+
+    .back-button:hover {
+    background-color: #2980b9;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      line-height: 1.6;
+      padding: 20px;
+      color: #333;
+    }
+
+    h1, h2, h3 {
+      color: #2c3e50;
+    }
+
+    code {
+      background: #eee;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+
+    section {
+      margin-bottom: 40px;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+  </style>
+</head>
+<body>
+      <header>
+    <a href="javascript:window.history.back();" class="back-button">Back</a>
+    <h1>Mobile App and Web Development</h1>
+    <p>Explore:</p>
+  </header>
+    <h1>MODULE 1</h1>
+  <h1>Basic Concepts of C#</h1>
+
+  <section>
+    <h2>C# Overview</h2>
+    <p>C# is an object-oriented language designed for building applications on the .NET Framework.</p>
+
+    <h3>.NET Framework Components</h3>
+    <ul>
+      <li><strong>Common Language Runtime (CLR):</strong> Manages memory, code execution, and security.</li>
+      <li><strong>Class Library:</strong> Predefined classes for tasks like file I/O and data processing.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Variables & Data Types</h2>
+    <ul>
+      <li><strong>Primitive Types:</strong> <code>int</code>, <code>float</code>, <code>double</code>, <code>char</code>, <code>bool</code>, <code>string</code></li>
+      <li><code>var</code> keyword: Automatically infers variable type</li>
+      <li><strong>Constants:</strong> Use <code>const</code> to declare unchangeable values</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Input/Output</h2>
+    <p><code>Console.WriteLine()</code> – Outputs text with a line break</p>
+    <p><code>Console.ReadLine()</code> – Reads user input (returns a string)</p>
+    <p><strong>Type Conversion:</strong> <code>Convert.ToInt32()</code>, <code>Convert.ToDouble()</code></p>
+  </section>
+
+  <section>
+    <h2>Operators</h2>
+    <p><strong>Arithmetic:</strong> <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code></p>
+    <p><strong>Assignment:</strong> <code>=</code>, <code>+=</code>, <code>-=</code></p>
+    <p><strong>Increment/Decrement:</strong> <code>++</code>, <code>--</code></p>
+    <p><strong>Precedence:</strong> Use <code>()</code> to control order</p>
+  </section>
+
+  <section>
+    <h2>Control Structures</h2>
+
+    <h3>Conditionals</h3>
+    <p><code>if</code> / <code>else</code>: Executes code based on Boolean condition</p>
+    <p><code>switch</code>: Tests variable against multiple values using <code>case</code>, <code>break</code>, <code>default</code></p>
+    <p><strong>Relational Operators:</strong> <code>==</code>, <code>!=</code>, <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code></p>
+
+    <h3>Loops</h3>
+    <ul>
+      <li><code>while</code>, <code>for</code>, <code>do-while</code></li>
+      <li><code>break</code>: Exit loop</li>
+      <li><code>continue</code>: Skip to next iteration</li>
+    </ul>
+
+    <h3>Logical Operators</h3>
+    <p><code>&&</code> (AND), <code>||</code> (OR), <code>!</code> (NOT)</p>
+  </section>
+
+  <section>
+    <h2>Methods</h2>
+    <h3>Definition</h3>
+    <p>Reusable blocks of code with a return type, name, and optional parameters</p>
+    <p><strong>Advantages:</strong> Reusability, readability, debugging</p>
+
+    <h3>Parameters</h3>
+    <ul>
+      <li><strong>Pass-by-Value:</strong> Copies value</li>
+      <li><strong>Pass-by-Reference:</strong> Use <code>ref</code> keyword</li>
+      <li><strong>Output Parameter:</strong> Use <code>out</code> to return values</li>
+    </ul>
+
+    <h3>Overloading & Recursion</h3>
+    <p><strong>Overloading:</strong> Same method name with different parameters</p>
+    <p><strong>Recursion:</strong> Method calls itself (e.g., factorial)</p>
+  </section>
+
+  <section>
+    <h2>Object-Oriented Programming (OOP)</h2>
+
+    <h3>Classes & Objects</h3>
+    <p><strong>Class:</strong> Blueprint (fields + methods)</p>
+    <p><strong>Object:</strong> Instance of a class</p>
+
+    <h3>Encapsulation</h3>
+    <p>Restrict access using <code>public</code>, <code>private</code>, <code>protected</code></p>
+    <p><strong>Properties:</strong> Controlled access with <code>get</code> and <code>set</code></p>
+
+    <h3>Constructors / Destructors</h3>
+    <p><strong>Constructor:</strong> Initializes an object</p>
+    <p><strong>Destructor:</strong> Cleans up before object is destroyed</p>
+
+    <h3>Static Members</h3>
+    <p>Belong to the class, not instances (e.g., <code>static int count;</code>)</p>
+  </section>
+
+  <section>
+    <h2>Advanced OOP</h2>
+
+    <h3>Inheritance</h3>
+    <p>Base/derived class relationship using <code>:</code></p>
+    <p><code>protected</code>: Accessible in derived class</p>
+    <p><code>sealed</code>: Prevents inheritance</p>
+
+    <h3>Polymorphism</h3>
+    <p><code>virtual</code>: Declares base method</p>
+    <p><code>override</code>: Overrides base method</p>
+
+    <h3>Abstract Class</h3>
+    <p>Cannot be instantiated; may include abstract methods (no body)</p>
+
+    <h3>Interface</h3>
+    <p>Fully abstract; a contract that must be implemented</p>
+  </section>
+
+  <section>
+    <h2>Data Structures</h2>
+
+    <h3>Arrays</h3>
+    <ul>
+      <li><code>int[] nums = new int[5];</code></li>
+      <li><code>int[,] matrix = new int[3,3];</code></li>
+      <li>Methods: <code>Sort()</code>, <code>Reverse()</code>, <code>Length</code></li>
+    </ul>
+
+    <h3>Strings</h3>
+    <p>Useful methods: <code>Length</code>, <code>IndexOf()</code>, <code>Substring()</code>, <code>Replace()</code></p>
+  </section>
+
+  <section>
+    <h2>Advanced Concepts</h2>
+
+    <h3>Structs</h3>
+    <p>Lightweight value types, no default constructor, passed by value</p>
+
+    <h3>Enums</h3>
+    <p>Set of named constants: <code>enum Days { Monday, Tuesday }</code></p>
+
+    <h3>Exception Handling</h3>
+    <p>Use <code>try-catch-finally</code> blocks</p>
+    <p>Common exceptions: <code>FileNotFoundException</code>, <code>IndexOutOfRangeException</code></p>
+
+    <h3>File I/O</h3>
+    <ul>
+      <li><code>File.WriteAllText(path, content)</code></li>
+      <li><code>File.ReadAllText(path)</code></li>
+      <li><code>File.Delete(path)</code></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Key Takeaways</h2>
+    <ul>
+      <li><strong>Master the Basics:</strong> Data types, I/O, operators, control flow</li>
+      <li><strong>Understand OOP:</strong> Encapsulation, inheritance, polymorphism</li>
+      <li><strong>Work with Data:</strong> Arrays, strings, collections</li>
+      <li><strong>Handle Errors:</strong> Exception handling and file operations</li>
+    </ul>
+  </section>
+
+
+
+
+    <h1>MODULE 2</h1>
+  <h1>Introduction to JavaScript</h1>
+
+  <section>
+    <h2>What is JavaScript?</h2>
+    <p>A powerful scripting language used to create dynamic and interactive web content. Also used for mobile/desktop apps and games.</p>
+  </section>
+
+  <section>
+    <h2>Adding JavaScript to Web Pages</h2>
+    <ul>
+      <li>Embedded using <code>&lt;script&gt;</code> tags (in <code>&lt;head&gt;</code> or <code>&lt;body&gt;</code>)</li>
+      <li>External files (.js) improve organization and performance</li>
+    </ul>
+    <h3>Comments</h3>
+    <ul>
+      <li>Single-line: <code>// comment</code></li>
+      <li>Multi-line: <code>/* comment */</code></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>JavaScript Basics</h2>
+
+    <h3>Variables</h3>
+    <p>Declared with <code>var</code>, <code>let</code>, and <code>const</code>. Must start with a letter, <code>_</code>, or <code>$</code>.</p>
+
+    <h3>Data Types</h3>
+    <ul>
+      <li><strong>Number:</strong> Integers, decimals</li>
+      <li><strong>String:</strong> Text like <code>'hello'</code> or <code>"world"</code></li>
+      <li><strong>Boolean:</strong> <code>true</code> or <code>false</code></li>
+    </ul>
+
+    <h3>Operators</h3>
+    <ul>
+      <li><strong>Arithmetic:</strong> <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code>, <code>++</code>, <code>--</code></li>
+      <li><strong>Assignment:</strong> <code>=</code>, <code>+=</code>, <code>-=</code></li>
+      <li><strong>Comparison:</strong> <code>==</code>, <code>===</code>, <code>!=</code>, <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>&gt;=</code></li>
+      <li><strong>Logical:</strong> <code>&&</code>, <code>||</code>, <code>!</code></li>
+      <li><strong>Ternary:</strong> <code>condition ? value1 : value2</code></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Conditionals and Loops</h2>
+
+    <h3>Conditionals</h3>
+    <ul>
+      <li><code>if</code>, <code>if-else</code>, <code>if-else-if</code></li>
+      <li><code>switch</code> with <code>case</code>, <code>break</code>, and <code>default</code></li>
+    </ul>
+
+    <h3>Loops</h3>
+    <ul>
+      <li><code>for</code>: initializer, condition, increment</li>
+      <li><code>while</code>: repeats while condition is true</li>
+      <li><code>do-while</code>: runs once, then checks condition</li>
+    </ul>
+
+    <h3>Control Statements</h3>
+    <ul>
+      <li><code>break</code>: exits loop or switch</li>
+      <li><code>continue</code>: skips to next iteration</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Functions</h2>
+    <h3>Definition</h3>
+    <p>Reusable block of code: <code>function name() { }</code></p>
+
+    <h3>Parameters & Arguments</h3>
+    <p>Values passed into functions to customize behavior.</p>
+
+    <h3>Return Values</h3>
+    <p>Use <code>return</code> to send output from a function.</p>
+
+    <h3>Popup Boxes</h3>
+    <ul>
+      <li><code>alert("message")</code> – simple notification</li>
+      <li><code>prompt("Enter name")</code> – get user input</li>
+      <li><code>confirm("Are you sure?")</code> – OK/Cancel dialog</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Objects</h2>
+
+    <h3>Definition</h3>
+    <p>Key-value pairs: <code>{ name: "John", age: 30 }</code></p>
+
+    <h3>Methods</h3>
+    <p>Functions inside objects</p>
+
+    <h3>Built-in Objects</h3>
+    <ul>
+      <li><strong>Math:</strong> <code>Math.random()</code>, <code>Math.PI</code></li>
+      <li><strong>Date:</strong> <code>new Date()</code>, <code>getFullYear()</code></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Arrays</h2>
+    <h3>Definition</h3>
+    <p>Ordered list: <code>let arr = [1, 2, 3]</code></p>
+
+    <h3>Access</h3>
+    <p>By index (starts at 0): <code>arr[0]</code></p>
+
+    <h3>Common Methods</h3>
+    <ul>
+      <li><code>length</code> – number of elements</li>
+      <li><code>concat()</code> – merge arrays</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>DOM (Document Object Model)</h2>
+
+    <h3>Overview</h3>
+    <p>HTML is represented as a tree of objects</p>
+
+    <h3>Selecting Elements</h3>
+    <ul>
+      <li><code>getElementById("id")</code></li>
+      <li><code>getElementsByClassName("class")</code></li>
+      <li><code>getElementsByTagName("tag")</code></li>
+    </ul>
+
+    <h3>Modifying Elements</h3>
+    <ul>
+      <li><code>element.innerHTML = "New content"</code></li>
+      <li><code>element.style.color = "red"</code></li>
+    </ul>
+
+    <h3>Event Handling</h3>
+    <p>Attach events: <code>onclick</code>, <code>onmouseover</code>, <code>onload</code></p>
+  </section>
+
+  <section>
+    <h2>jQuery</h2>
+
+    <h3>Purpose</h3>
+    <p>JavaScript library that simplifies DOM manipulation and event handling</p>
+
+    <h3>Syntax</h3>
+    <p>Starts with <code>$</code>. Example: <code>$("p")</code> selects all paragraph tags</p>
+
+    <h3>Selectors</h3>
+    <ul>
+      <li><code>$("#id")</code> – select by ID</li>
+      <li><code>$(".class")</code> – select by class</li>
+      <li><code>$("div > p")</code> – hierarchical selection</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Key Takeaways</h2>
+    <ul>
+      <li>JavaScript enables interactive, responsive web pages</li>
+      <li>jQuery simplifies DOM tasks</li>
+      <li>Master variables, functions, objects, and the DOM for success in web dev</li>
+    </ul>
+  </section>
+
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Quiz</title>
+  <link rel="stylesheet" href="quiz.css">
+</head>
+    <a href="javascript:window.history.back();" class="back-button">Back</a>
+<body>
+  <div class="quiz-container">
+
+    <h1>Quick Quiz</h1>
+
+    <div class="question">
+      <p>1.What is the official IDE for Android development?</p>
+      <button onclick="checkAnswer(this, false)">A. Xcode</button>
+      <button onclick="checkAnswer(this, false)">B. Visual Studio</button>
+      <button onclick="checkAnswer(this, false)">C. Eclipse</button>
+      <button onclick="checkAnswer(this, true)">D. Android Studio</button>
+    </div>
+
+    <div class="question">
+      <p>2. What does an APK file contain?</p>
+      <button onclick="checkAnswer(this, false)">A. Only Java source code</button>
+      <button onclick="checkAnswer(this, false)">B. App settings only</button>
+      <button onclick="checkAnswer(this, false)">C. The app icon and theme</button>
+      <button onclick="checkAnswer(this, true)">D. Code, resources, and manifest</button>
+    </div>
+
+    <div class="question">
+      <p>3.  Which component represents a single screen in Android?</p>
+      <button onclick="checkAnswer(this, false)">A. Service</button>
+      <button onclick="checkAnswer(this, true)">B. Activity </button>
+      <button onclick="checkAnswer(this, false)">C. Fragment</button>
+      <button onclick="checkAnswer(this, false)">D. Intent </button>
+    </div>
+    <div class="question">
+      <p>4. What is the purpose of the AndroidManifest.xml file?</p>
+      <button onclick="checkAnswer(this, false)">A. To create user interfaces</button>
+      <button onclick="checkAnswer(this, false)">B.  To store user data</button>
+      <button onclick="checkAnswer(this, true)">C. To declare app components and permissions</button>
+      <button onclick="checkAnswer(this, false)">D. To configure device hardware</button>
+    </div>
+    <div class="question">
+      <p>5. Which layout arranges views in a single row or column?</p>
+      <button onclick="checkAnswer(this, false)">A. ConstraintLayout</button>
+      <button onclick="checkAnswer(this, true)">B. LinearLayout</button>
+      <button onclick="checkAnswer(this, false)">C. RelativeLayout</button>
+      <button onclick="checkAnswer(this, false)">D. FrameLayout</button>
+    </div>
+        <div class="question">
+        <p>6. Which lifecycle method is called when the activity becomes visible?</p>
+        <button onclick="checkAnswer(this, false)">A. onPause() </button>
+        <button onclick="checkAnswer(this, true)">B. onStart() </button>
+        <button onclick="checkAnswer(this, false)">C. onDestroy()</button>
+        <button onclick="checkAnswer(this, false)">D. onResume()</button>
+    </div>
+    <div class="question">
+      <p>7. What tool is used for debugging Android apps via command line?</p>
+      <button onclick="checkAnswer(this, false)">A. SDK Manager</button>
+      <button onclick="checkAnswer(this, false)">B. Gradle</button>
+      <button onclick="checkAnswer(this, false)">C. Virtual Device</button>
+      <button onclick="checkAnswer(this, true)">D. ADB (Android Debug Bridge)</button>
+    </div>
+    <div class="question">
+      <p>8. What is the primary use of a Fragment?</p>
+      <button onclick="checkAnswer(this, false)">A. To build release APKs</button>
+      <button onclick="checkAnswer(this, false)">B. To install apps</button>
+      <button onclick="checkAnswer(this, true)">C. To create modular UI sections</button>
+      <button onclick="checkAnswer(this, false)">D. manage phone storage</button>
+    </div>
+    <div class="question">
+      <p>9. How does a Toast message differ from a Dialog?</p>
+      <button onclick="checkAnswer(this, false)">A. To build release APKs</button>
+      <button onclick="checkAnswer(this, true)">B. To install apps</button>
+      <button onclick="checkAnswer(this, false)">C. To create modular UI sections</button>
+      <button onclick="checkAnswer(this, false)">D. To manage phone storage</button>
+    </div>
+    <div class="question">
+      <p>10. What does an Intent do in Android?</p>
+      <button onclick="checkAnswer(this, false)">A. Compiles the app</button>
+      <button onclick="checkAnswer(this, true)">B. Activates components or starts new activities </button>
+      <button onclick="checkAnswer(this, false)">C. Stores user data</button>
+      <button onclick="checkAnswer(this, false)">D. Builds the UI layout</button>
+    </div>
+
+    <div class="result">
+      <p id="score">Score: 0</p>
+      <button onclick="resetQuiz()">Retry</button>
+    </div>
+  </div>
+
+  <script>
+    let score = 0;
+    let answered = 0;
+
+    function checkAnswer(button, isCorrect) {
+      if (button.classList.contains("answered")) return; // Prevent double clicking
+      button.classList.add("answered");
+
+      const allButtons = button.parentElement.querySelectorAll("button");
+      allButtons.forEach(btn => btn.disabled = true);
+
+      if (isCorrect) {
+        score++;
+        button.classList.add("correct");
+      } else {
+        button.classList.add("wrong");
+      }
+
+      answered++;
+      document.getElementById("score").textContent = `Score: ${score}`;
+
+      if (answered === 3) {
+        document.querySelector(".result").style.display = "block";
+      }
+    }
+
+    function resetQuiz() {
+    score = 0;
+    answered = 0;
+    document.getElementById("score").textContent = "Score: 0";
+    document.querySelectorAll("button").forEach(btn => {
+        btn.classList.remove("correct", "wrong", "answered");
+        btn.disabled = false;
+    });
+    document.querySelector(".result").style.display = "none";
+
+    // Scroll to top
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth" // optional for smooth scroll
+    });
+    }
+
+  </script>
+</body>
+
+</html>

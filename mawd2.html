@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mobile Applications Development</title>
+  <style>
+    header {
+    position: sticky;
+    top: 0;
+    background-color: #eaeaea;
+    padding: 15px 20px;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #ccc;
+    text-align: center;
+    z-index: 1000;
+    }
+
+    header h1 {
+    margin: 10px 0;
+    font-size: 24px;
+    }
+
+    .back-button {
+    display: inline-block;
+    background-color: #3498db;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 10px;
+    }
+
+    .back-button:hover {
+    background-color: #2980b9;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      padding: 20px;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    h1, h2, h3 {
+      color: #2c3e50;
+    }
+
+    code {
+      background-color: #eee;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+
+    section {
+      margin-bottom: 40px;
+    }
+
+    ul {
+      margin-top: 0;
+      padding-left: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="javascript:window.history.back();" class="back-button">Back</a>
+    <h1>Mobile App and Web Development</h1>
+    <p>Explore:</p>
+  </header>
+  <h1>MODULE 1</h1>
+  <h1>Introduction to Mobile Applications Development</h1>
+
+  <section>
+    <h2>Mobile Operating Systems</h2>
+    <ul>
+      <li><strong>Android:</strong> Open-source by Google, customizable, supports various devices</li>
+      <li><strong>iOS:</strong> Apple-exclusive, smooth user interface, multi-touch support</li>
+      <li><strong>Windows Phone:</strong> Microsoft integration (discontinued)</li>
+      <li><strong>Others:</strong> BlackBerry, Symbian (discontinued)</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Benefits of Mobile Apps</h2>
+    <ul>
+      <li>Convenience, offline functionality</li>
+      <li>Personalization and responsiveness</li>
+      <li>Touch-based interaction</li>
+      <li>Productivity tools and integration</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Development Environments (IDEs)</h2>
+    <ul>
+      <li><strong>Android Studio:</strong> Java/Kotlin for Android</li>
+      <li><strong>Xcode:</strong> Swift for iOS</li>
+      <li><strong>Visual Studio:</strong> Cross-platform (Windows, Android, iOS)</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Design Considerations</h2>
+    <ul>
+      <li>Varying screen sizes and densities</li>
+      <li>Touch-friendly input (minimize typing)</li>
+      <li>Responsive layout</li>
+      <li>Integration with phone features</li>
+      <li>Efficient use of battery and CPU</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Android App Development Basics</h2>
+
+    <h3>Application Fundamentals</h3>
+    <ul>
+      <li><strong>APK:</strong> Package containing code, assets, manifest</li>
+      <li>Apps run in sandboxed environment using separate processes</li>
+    </ul>
+
+    <h3>App Components</h3>
+    <ul>
+      <li><strong>Activities:</strong> UI screens</li>
+      <li><strong>Services:</strong> Background tasks</li>
+      <li><strong>Content Providers:</strong> Manage shared app data</li>
+      <li><strong>Broadcast Receivers:</strong> Listen for system-wide events</li>
+      <li><strong>Manifest File:</strong> Declares app components and permissions</li>
+      <li><strong>Intents:</strong> Messages that activate components</li>
+    </ul>
+
+    <h3>Development Workflow</h3>
+    <ul>
+      <li>Setup IDE and virtual device</li>
+      <li>Develop code and UI</li>
+      <li>Test using emulator or physical device</li>
+      <li>Build and publish APK</li>
+    </ul>
+
+    <h3>Tools</h3>
+    <ul>
+      <li><strong>Android SDK:</strong> APIs and libraries</li>
+      <li><strong>ADB:</strong> Debugging and device communication</li>
+      <li><strong>Gradle:</strong> Project build automation</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>User Interface (UI) Design</h2>
+
+    <h3>UI Components</h3>
+    <ul>
+      <li><strong>Views:</strong> Buttons, text fields, images</li>
+      <li><strong>ViewGroups:</strong> Layout containers (LinearLayout, ConstraintLayout)</li>
+      <li><strong>App Bar:</strong> Title and navigation</li>
+      <li><strong>Dialogs:</strong> Prompts or confirmations</li>
+      <li><strong>Notifications:</strong> System-wide alerts</li>
+      <li><strong>Toasts:</strong> Short messages shown on screen</li>
+    </ul>
+
+    <h3>Layouts</h3>
+    <ul>
+      <li><strong>LinearLayout:</strong> Aligns elements in a single direction</li>
+      <li><strong>RelativeLayout:</strong> Positions elements relative to each other</li>
+      <li><strong>ConstraintLayout:</strong> Modern, flexible layout</li>
+      <li><strong>ListView/GridView:</strong> Display scrollable lists or grids</li>
+    </ul>
+
+    <h3>Input Controls</h3>
+    <ul>
+      <li><strong>Buttons:</strong> Trigger actions</li>
+      <li><strong>Text Fields:</strong> Input from user</li>
+      <li><strong>Checkboxes/Radio Buttons:</strong> Multiple/single selections</li>
+      <li><strong>Spinners/Pickers:</strong> Choose values or dates from dropdowns</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Android Activities & Lifecycle</h2>
+
+    <h3>Activity States</h3>
+    <ul>
+      <li><strong>Resumed:</strong> Foreground and interactive</li>
+      <li><strong>Paused:</strong> Partially visible</li>
+      <li><strong>Stopped:</strong> Hidden from user</li>
+    </ul>
+
+    <h3>Lifecycle Methods</h3>
+    <ul>
+      <li><code>onCreate()</code>: Initialize app components</li>
+      <li><code>onStart()</code> / <code>onStop()</code>: Activity becomes visible/invisible</li>
+      <li><code>onResume()</code> / <code>onPause()</code>: Activity gains/loses focus</li>
+      <li><code>onDestroy()</code>: Cleanup before destruction</li>
+    </ul>
+
+    <h3>Fragments</h3>
+    <p>Modular parts of UI with their own lifecycle.</p>
+    <p>Common methods: <code>onCreateView()</code>, <code>onPause()</code>, <code>onDestroyView()</code></p>
+  </section>
+
+  <section>
+    <h2>Input Events</h2>
+
+    <h3>Event Listeners</h3>
+    <p>Monitor user actions on UI components.</p>
+    <p>Examples: <code>setOnClickListener</code>, <code>setOnTouchListener</code></p>
+
+    <h3>Event Handlers</h3>
+    <p>Define responses to user interactions.</p>
+    <p>Example: Navigating to another screen after a button click.</p>
+  </section>
+</body>
+</html>

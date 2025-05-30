@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SHS Personality Strand Quiz</title>
+  <link rel="stylesheet" href="quiz-style.css">
+</head>
+        <a href="javascript:window.history.back();" class="back-button">Back</a>
+<body>
+  <!-- START SCREEN -->
+  <div class="quiz-container">
+
+    <div id="start-screen">
+      <h1>SHS Strand Personality Test</h1>
+      <p>Enter your name to begin:</p>
+      <input type="text" id="studentName" placeholder="Your name" required>
+      <button onclick="startQuiz()">Start Quiz</button>
+    </div>
+
+    <!-- QUIZ -->
+    <form id="quizForm" style="display: none;">
+      <div id="questions-container"></div>
+      <button type="submit">See My Result</button>
+    </form>
+
+<div id="result" class="result" style="display: none;">
+  <h2>Hi <span id="name-output"></span>!</h2>
+  <p>Your recommended SHS strand is:</p>
+  <h3 id="finalResult"></h3>
+  <button onclick="location.reload()">Retake Quiz</button>
+</div>
+
+  <script>
+  let studentName = "";
+
+  const questions = [
+    "What school activity do you enjoy most?",
+    "Your dream job would involve:",
+    "What describes your learning style?",
+    "What motivates you most?",
+    "You prefer to solve problems by:",
+    "What role would you take in a group project?",
+    "Your ideal classroom environment is:",
+    "How do you usually plan your future?",
+    "Which hobby sounds most like you?",
+    "What’s most important to you in a job?",
+    "Which quote fits you best?",
+    "Which would you most enjoy learning?",
+    "In your free time, you’re most likely:",
+    "What kind of problems do you enjoy solving?",
+    "Which would you most likely say?"
+  ];
+
+  const choices = {
+    A: "STEM (Science, Technology, Engineering, Math)",
+    B: "HUMSS (Humanities and Social Sciences)",
+    C: "MAWD (Mobile App and Web Development)",
+    D: "ABM (Accountancy, Business, Management)",
+    E: "CULARTS (Culinary and Arts)",
+    F: "TOPER (Technical Occupation & Practical Ed Routes)"
+  };
+
+  const options = {
+    0: ["A. Science experiments or solving math problems", "B. Group discussions or essay writing", "C. Coding or editing videos", "D. Selling products or planning events", "E. Drawing, singing, or acting", "F. Hands-on activities like fixing or cooking"],
+    1: ["A. Engineering, medicine, or research", "B. Law, psychology, or education", "C. Software development or animation", "D. Business ownership or financial planning", "E. Culinary arts or visual arts", "F. Welding, electrical work, or hospitality"],
+    2: ["A. Logical and methodical", "B. Reflective and expressive", "C. Interactive and tech-savvy", "D. Goal-driven and strategic", "E. Imaginative and free-spirited", "F. Practical and task-oriented"],
+    3: ["A. Discovering how things work", "B. Understanding people and society", "C. Creating innovative tools", "D. Earning money and leading a team", "E. Expressing feelings and emotions", "F. Getting a stable, hands-on job"],
+    4: ["A. Using logic and formulas", "B. Talking things through or writing", "C. Designing a tech-based solution", "D. Finding the most profitable answer", "E. Thinking outside the box creatively", "F. Fixing it with your hands"],
+    5: ["A. Researcher or analyst", "B. Writer or discussion leader", "C. Designer or tech support", "D. Organizer or team leader", "E. Presenter or creative planner", "F. Builder or implementer"],
+    6: ["A. Quiet with problem-solving tasks", "B. Active with debates and sharing", "C. Digital with interactive tools", "D. Fast-paced and productive", "E. Colorful, expressive, and open", "F. Practical and skill-focused"],
+    7: ["A. Based on what’s logical and stable", "B. Based on your values and beliefs", "C. Based on trends and digital futures", "D. Based on your money and career goals", "E. Based on your creative dreams", "F. Based on skills you can learn now"],
+    8: ["A. Solving puzzles or doing science kits", "B. Journaling or volunteering", "C. Making websites or mobile games", "D. Budgeting or starting a small business", "E. Cooking, painting, or dancing", "F. Fixing appliances or crafting"],
+    9: ["A. Intellectual challenge", "B. Social impact", "C. Innovation and tech creativity", "D. Financial success and leadership", "E. Personal expression and artistry", "F. Job security and practical application"],
+    10: ["A. “Facts don’t lie.”", "B. “Words have power.”", "C. “There’s always an app for that.”", "D. “Think big, start small.”", "E. “Life is art.”", "F. “Work hard, work smart.”"],
+    11: ["A. Physics or calculus", "B. Sociology or world literature", "C. Python or JavaScript", "D. Marketing or accounting", "E. Culinary techniques or film editing", "F. Carpentry or electricity"],
+    12: ["A. Reading science articles or watching documentaries", "B. Writing poems or debating ideas", "C. Playing video games or building something digital", "D. Selling products online or managing a budget", "E. Cooking, drawing, or dancing", "F. Fixing things or helping with chores"],
+    13: ["A. Math or scientific questions", "B. Social or ethical dilemmas", "C. Tech bugs or system issues", "D. Business challenges or sales", "E. Creative blocks or performance tasks", "F. Real-world practical issues"],
+    14: ["A. “Let’s test the data.”", "B. “Let’s hear everyone's opinion.”", "C. “I’ll design the interface.”", "D. “I’ll plan our strategy.”", "E. “I have a creative idea!”", "F. “Let me build it.”"]
+  };
+
+  const container = document.getElementById("questions-container");
+
+  questions.forEach((q, index) => {
+    const div = document.createElement("div");
+    div.className = "question-block";
+    div.innerHTML = `<p>${index + 1}. ${q}</p>` + options[index].map((opt, i) => {
+      const value = Object.keys(choices)[i];
+      return `
+        <label>
+          <input type="radio" name="q${index}" value="${value}" required />
+          ${opt}
+        </label><br>`;
+    }).join("");
+    container.appendChild(div);
+  });
+
+  function startQuiz() {
+    const nameInput = document.getElementById("studentName").value.trim();
+    if (!nameInput) {
+      alert("Please enter your name first.");
+      return;
+    }
+    studentName = nameInput;
+    document.getElementById("start-screen").style.display = "none";
+    document.getElementById("quizForm").style.display = "block";
+  }
+
+  document.getElementById("quizForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const formData = new FormData(e.target);
+    const scores = { A: 0, B: 0, C: 0, D: 0, E: 0, F: 0 };
+
+    for (let [key, value] of formData.entries()) {
+      scores[value]++;
+    }
+
+    const top = Object.entries(scores).sort((a, b) => b[1] - a[1])[0];
+    const resultText = `${choices[top[0]]} (${top[1]} points)`;
+
+    document.getElementById("name-output").textContent = studentName;
+    document.getElementById("finalResult").textContent = resultText;
+
+    document.getElementById("quizForm").style.display = "none";
+    document.getElementById("result").style.display = "block";
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Quiz</title>
+  <link rel="stylesheet" href="quiz.css">
+</head>
+    <a href="javascript:window.history.back();" class="back-button">Back</a>
+<body>
+  <div class="quiz-container">
+
+    <h1>Quick Quiz</h1>
+
+    <div class="question">
+      <p>1. What is the primary purpose of decorum in business?</p>
+      <button onclick="checkAnswer(this, false)">A. Increasing profits</button>
+      <button onclick="checkAnswer(this, true)">B. Increasing profits</button>
+      <button onclick="checkAnswer(this, false)">C. Reducing employee numbers</button>
+      <button onclick="checkAnswer(this, false)">D. Expanding market share</button>
+    </div>
+
+    <div class="question">
+      <p>2. Which principle of justice focuses on fair punishment for wrongdoing?</p>
+      <button onclick="checkAnswer(this, false)">A. Distributive justice</button>
+      <button onclick="checkAnswer(this, false)">B. Compensatory justice</button>
+      <button onclick="checkAnswer(this, true)">C. Retributive justice</button>
+      <button onclick="checkAnswer(this, false)">D. Organizational justice</button>
+    </div>
+
+    <div class="question">
+      <p>3. What is the key purpose of corporate transparency?</p>
+      <button onclick="checkAnswer(this, false)">A. To hide company secrets</button>
+      <button onclick="checkAnswer(this, true)">B. To make operations observable to stakeholders</button>
+      <button onclick="checkAnswer(this, false)">C. To reduce employee benefits</button>
+      <button onclick="checkAnswer(this, false)">D. To limit customer interactions</button>
+    </div>
+    <div class="question">
+      <p>4. Which business type transforms raw materials into new products?</p>
+      <button onclick="checkAnswer(this, false)">A. Service business</button>
+      <button onclick="checkAnswer(this, false)">B. Merchandising business</button>
+      <button onclick="checkAnswer(this, true)">C. Manufacturing business</button>
+      <button onclick="checkAnswer(this, false)">D. Financial business</button>
+    </div>
+    <div class="question">
+      <p>5. Which business type transforms raw materials into new products?</p>
+      <button onclick="checkAnswer(this, false)">A. Service business</button>
+      <button onclick="checkAnswer(this, false)">B. Merchandising business</button>
+      <button onclick="checkAnswer(this, true)">C. Manufacturing business</button>
+      <button onclick="checkAnswer(this, false)">D. Financial business</button>
+    </div>
+        <div class="question">
+        <p>6.  What is the primary function of money as a medium of exchange?</p>
+        <button onclick="checkAnswer(this, true)">A. To facilitate payments for goods/services</button>
+        <button onclick="checkAnswer(this, false)">B. To store value over time</button>
+        <button onclick="checkAnswer(this, false)">C. To replace all forms of debt</button>
+        <button onclick="checkAnswer(this, false)">D. To act as a long-term investment</button>
+    </div>
+    <div class="question">
+      <p>7. Which financial institution primarily serves rural areas with consumer credit?</p>
+      <button onclick="checkAnswer(this, false)">A. Universal banks</button>
+      <button onclick="checkAnswer(this, true)">B. Thrift banks</button>
+      <button onclick="checkAnswer(this, false)">C. Investment banks</button>
+      <button onclick="checkAnswer(this, false)">D. Private equity funds</button>
+    </div>
+    <div class="question">
+      <p>8. What distinguishes a mutual fund?</p>
+      <button onclick="checkAnswer(this, false)">A. It issues corporate bonds</button>
+      <button onclick="checkAnswer(this, false)">B. It is unregulated</button>
+      <button onclick="checkAnswer(this, true)">C. It operates only in primary markets</button>
+      <button onclick="checkAnswer(this, false)">D. It pools small investments for collective management</button>
+    </div>
+    <div class="question">
+      <p>9. A "financial asset" includes all EXCEPT:</p>
+      <button onclick="checkAnswer(this, false)">A. Cash</button>
+      <button onclick="checkAnswer(this, false)">B. Stocks</button>
+      <button onclick="checkAnswer(this, true)">C. Loans Payable</button>
+      <button onclick="checkAnswer(this, false)">D. Bonds receivable</button>
+    </div>
+    <div class="question">
+      <p>10. Preferred stockholders have priority over common stockholders for:</p>
+      <button onclick="checkAnswer(this, false)">A. Voting rights</button>
+      <button onclick="checkAnswer(this, true)">B. Dividend payments</button>
+      <button onclick="checkAnswer(this, false)">C. Company management</button>
+      <button onclick="checkAnswer(this, false)">D. Selling shares in secondary markets</button>
+    </div>
+
+    <div class="result">
+      <p id="score">Score: 0</p>
+      <button onclick="resetQuiz()">Retry</button>
+    </div>
+  </div>
+
+  <script>
+    let score = 0;
+    let answered = 0;
+
+    function checkAnswer(button, isCorrect) {
+      if (button.classList.contains("answered")) return; // Prevent double clicking
+      button.classList.add("answered");
+
+      const allButtons = button.parentElement.querySelectorAll("button");
+      allButtons.forEach(btn => btn.disabled = true);
+
+      if (isCorrect) {
+        score++;
+        button.classList.add("correct");
+      } else {
+        button.classList.add("wrong");
+      }
+
+      answered++;
+      document.getElementById("score").textContent = `Score: ${score}`;
+
+      if (answered === 3) {
+        document.querySelector(".result").style.display = "block";
+      }
+    }
+
+    function resetQuiz() {
+    score = 0;
+    answered = 0;
+    document.getElementById("score").textContent = "Score: 0";
+    document.querySelectorAll("button").forEach(btn => {
+        btn.classList.remove("correct", "wrong", "answered");
+        btn.disabled = false;
+    });
+    document.querySelector(".result").style.display = "none";
+
+    // Scroll to top
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth" // optional for smooth scroll
+    });
+    }
+
+  </script>
+</body>
+
+</html>

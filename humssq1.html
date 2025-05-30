@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Quiz</title>
+  <link rel="stylesheet" href="quiz.css">
+</head>
+    <a href="javascript:window.history.back();" class="back-button">Back</a>
+<body>
+  <div class="quiz-container">
+
+    <h1>Quick Quiz</h1>
+
+    <div class="question">
+      <p>1. Which discipline studies ancient cultures and human evolution?</p>
+      <button onclick="checkAnswer(this, false)">A. Economics</button>
+      <button onclick="checkAnswer(this, false)">B. Demography</button>
+      <button onclick="checkAnswer(this, false)">C. Psychology</button>
+      <button onclick="checkAnswer(this, true)">D. Anthropology</button>
+    </div>
+
+    <div class="question">
+      <p>2. What is the primary focus of economics?</p>
+      <button onclick="checkAnswer(this, false)">A. Mapping geographic regions</button>
+      <button onclick="checkAnswer(this, true)">B. Allocating scarce resources</button>
+      <button onclick="checkAnswer(this, false)">C. Analyzing population trends</button>
+      <button onclick="checkAnswer(this, false)">D. Studying mental processes</button>
+    </div>
+
+    <div class="question">
+      <p>3. Who is considered the "Father of Geography"?</p>
+      <button onclick="checkAnswer(this, false)">A. Herodotus</button>
+      <button onclick="checkAnswer(this, true)">B. Eratosthenes</button>
+      <button onclick="checkAnswer(this, false)">C. Adam Smith</button>
+      <button onclick="checkAnswer(this, false)">D. Auguste Comte</button>
+    </div>
+    <div class="question">
+      <p>4. Which field examines language structure and acquisition?</p>
+      <button onclick="checkAnswer(this, false)">A. History</button>
+      <button onclick="checkAnswer(this, false)">B. Political Science</button>
+      <button onclick="checkAnswer(this, true)">C. Linguistics</button>
+      <button onclick="checkAnswer(this, false)">D. Sociology</button>
+    </div>
+    <div class="question">
+      <p>5. What distinguishes social sciences from natural sciences?</p>
+      <button onclick="checkAnswer(this, true)">A. Study of human interactions vs. natural phenomena</button>
+      <button onclick="checkAnswer(this, false)">B. Use of mathematical models</button>
+      <button onclick="checkAnswer(this, false)">C. Focus on laboratory experiments</button>
+      <button onclick="checkAnswer(this, false)">D. Exclusion of research methods</button>
+    </div>
+        <div class="question">
+        <p>6.  Which event spurred the development of sociology?</p>
+        <button onclick="checkAnswer(this, false)">A. The Renaissance</button>
+        <button onclick="checkAnswer(this, true)">B. The Industrial Revolution</button>
+        <button onclick="checkAnswer(this, false)">C. World War II</button>
+        <button onclick="checkAnswer(this, false)">D. The Digital Age</button>
+    </div>
+    <div class="question">
+      <p>7. Who coined the term "sociology"?</p>
+      <button onclick="checkAnswer(this, false)">A. Karl Marx</button>
+      <button onclick="checkAnswer(this, true)">B. Auguste Comte</button>
+      <button onclick="checkAnswer(this, false)">C. Sigmund Freud</button>
+      <button onclick="checkAnswer(this, false)">D. Wilhelm Wundt</button>
+    </div>
+    <div class="question">
+      <p>8. What is a key contribution of Adam Smith to economics?</p>
+      <button onclick="checkAnswer(this, true)">A. The "invisible hand" theory</button>
+      <button onclick="checkAnswer(this, false)">B. Psychoanalytic theory</button>
+      <button onclick="checkAnswer(this, false)">C. Population growth models</button>
+      <button onclick="checkAnswer(this, false)">D. Geographic mapping techniques</button>
+    </div>
+    <div class="question">
+      <p>9. What does virality mean in the context of trends?</p>
+      <button onclick="checkAnswer(this, false)">A. Psychology</button>
+      <button onclick="checkAnswer(this, true)">B. Demography</button>
+      <button onclick="checkAnswer(this, false)">C. Political Science</button>
+      <button onclick="checkAnswer(this, false)">D. History</button>
+    </div>
+    <div class="question">
+      <p>10. How do social sciences contribute to safety?</p>
+      <button onclick="checkAnswer(this, false)">A. By inventing new technologies</button>
+      <button onclick="checkAnswer(this, false)">B. By eliminating natural disasters</button>
+      <button onclick="checkAnswer(this, false)">C. By replacing legal systems</button>
+      <button onclick="checkAnswer(this, true)">D. By understanding crowd behavior and policy impacts</button>
+    </div>
+
+    <div class="result">
+      <p id="score">Score: 0</p>
+      <button onclick="resetQuiz()">Retry</button>
+    </div>
+  </div>
+
+  <script>
+    let score = 0;
+    let answered = 0;
+
+    function checkAnswer(button, isCorrect) {
+      if (button.classList.contains("answered")) return; // Prevent double clicking
+      button.classList.add("answered");
+
+      const allButtons = button.parentElement.querySelectorAll("button");
+      allButtons.forEach(btn => btn.disabled = true);
+
+      if (isCorrect) {
+        score++;
+        button.classList.add("correct");
+      } else {
+        button.classList.add("wrong");
+      }
+
+      answered++;
+      document.getElementById("score").textContent = `Score: ${score}`;
+
+      if (answered === 3) {
+        document.querySelector(".result").style.display = "block";
+      }
+    }
+
+    function resetQuiz() {
+    score = 0;
+    answered = 0;
+    document.getElementById("score").textContent = "Score: 0";
+    document.querySelectorAll("button").forEach(btn => {
+        btn.classList.remove("correct", "wrong", "answered");
+        btn.disabled = false;
+    });
+    document.querySelector(".result").style.display = "none";
+
+    // Scroll to top
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth" // optional for smooth scroll
+    });
+    }
+
+  </script>
+</body>
+
+</html>
